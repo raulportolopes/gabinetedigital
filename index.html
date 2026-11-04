@@ -39,6 +39,7 @@
   --foot: #071D41; --foot-ink: #FFFFFF; --foot-ink-2: #C5D4EB;
   --glow: rgba(19,81,180,.06);
   --scrim: rgba(7,29,65,.45);
+  --map-bg: var(--sheet-2); --map-land: var(--sheet); --map-line: var(--rule); --map-street: var(--paper);
   --shadow: 0 1px 6px rgba(51,51,51,.16);
   --shadow-up: 0 3px 12px rgba(51,51,51,.2);
   --f: "Raleway", "Rawline", "Segoe UI", system-ui, sans-serif;
@@ -375,6 +376,79 @@ footer { background: var(--foot); color: var(--foot-ink); padding-block: 40px ca
 .f-brand b { color: var(--foot-ink); font-size: 1.2rem; font-weight: 800; }
 .f-base { margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); font-size: .8rem; color: var(--foot-ink-2); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
+/* ===== Demandas no mapa (inteligência territorial) ===== */
+.alerta { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 18px; align-items: center; padding: 20px 22px; border-radius: 8px; background: var(--sheet); box-shadow: var(--shadow); border-left: 6px solid var(--stop); }
+.alerta .pulse { position: relative; width: 46px; height: 46px; border-radius: 50%; background: var(--stop-wash); display: grid; place-items: center; color: var(--stop); flex: none; }
+.alerta .pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--stop); opacity: 0; animation: ping 3.5s var(--ease-out) infinite; animation-delay: -1s; }
+.alerta .pulse svg { width: 22px; height: 22px; }
+.alerta h2 { font-size: 1.15rem; margin-top: 2px; }
+.facts { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: .88rem; color: var(--ink-2); margin-top: 6px; }
+.facts b { color: var(--ink); }
+.alerta-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.terr { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); gap: 24px; align-items: start; }
+.map-tools { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--rule); background: var(--sheet); border-radius: 999px; padding: 5px 12px; font-size: .8rem; font-weight: 600; cursor: pointer; color: var(--ink-2); transition: background-color .25s var(--ease-out), border-color .25s var(--ease-out), color .25s var(--ease-out); }
+.chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); opacity: .35; transition: opacity .25s var(--ease-out); }
+.chip b { font-weight: 800; }
+.chip[aria-pressed="true"] { border-color: var(--navy); color: var(--navy); }
+.chip[aria-pressed="true"] i { opacity: 1; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; background: var(--sheet); }
+.seg button { border: 0; background: none; padding: 6px 13px; font-size: .78rem; font-weight: 700; cursor: pointer; color: var(--ink-2); transition: background-color .25s var(--ease-out), color .25s var(--ease-out); }
+.seg button[aria-pressed="true"] { background: var(--blue); color: var(--blue-ink); }
+.map-wrap { position: relative; border-radius: 8px; overflow: hidden; background: var(--map-bg); }
+.map-wrap svg { display: block; width: 100%; height: auto; }
+.bairro-shape { fill: var(--map-land); stroke: var(--map-line); stroke-width: 2; stroke-linejoin: round; transition: fill .4s var(--ease-out); }
+.bairro-shape.hot { fill: var(--stop-wash); stroke: var(--stop); stroke-dasharray: 5 5; }
+.bairro-label { font: 800 12px var(--f); fill: var(--ink-2); letter-spacing: .08em; text-transform: uppercase; pointer-events: none; }
+.street { stroke: var(--map-street); stroke-width: 7; fill: none; stroke-linecap: round; }
+.pin { cursor: pointer; transition: transform .2s var(--ease-out); transform-box: fill-box; transform-origin: center; }
+.pin:hover { transform: scale(1.7); }
+.pin.new { animation: drop .7s var(--ease-out) both; }
+@keyframes drop { from { transform: translateY(-40px); opacity: 0; } }
+.ring { fill: none; stroke: var(--stop); stroke-width: 2.5; stroke-dasharray: 7 6; animation: spin 24s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.ring-tag { font: 800 12px var(--f); fill: var(--stop); paint-order: stroke; stroke: var(--sheet); stroke-width: 4px; }
+.map-stamp { position: absolute; left: 12px; top: 12px; background: var(--sheet); color: var(--navy); font-weight: 700; font-size: .78rem; padding: 5px 10px; border-radius: 999px; box-shadow: var(--shadow); }
+.map-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 14px; font-size: .84rem; color: var(--ink-2); align-items: center; }
+.map-foot > div { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.hot-list { display: flex; flex-direction: column; gap: 10px; }
+.hot { display: grid; grid-template-columns: 30px minmax(0,1fr) auto; gap: 12px; align-items: center; padding: 14px; border-radius: 8px; background: var(--paper); border: 0; text-align: left; cursor: pointer; transition: box-shadow .25s var(--ease-out), background-color .25s var(--ease-out); width: 100%; }
+.hot:hover { background: var(--blue-wash); }
+.hot[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--blue); background: var(--sheet); }
+.hot .rank { font-weight: 800; font-size: 1.3rem; color: var(--navy); text-align: center; }
+.hot b { display: block; color: var(--navy); line-height: 1.3; }
+.hot small { color: var(--ink-2); font-size: .8rem; }
+.hot .n { font-weight: 800; font-size: 1.4rem; text-align: right; line-height: 1; color: var(--navy); }
+.hot .n small { display: block; font-weight: 600; font-size: .66rem; margin-top: 3px; }
+.hot.crit .n { color: var(--stop); }
+.empty { padding: 18px; border-radius: 8px; background: var(--paper); color: var(--ink-2); font-size: .9rem; }
+.prova { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: 32px; align-items: end; }
+.bars { display: flex; align-items: flex-end; gap: 12px; height: 190px; border-bottom: 2px solid var(--rule); }
+.bars div { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%; }
+.bars i { display: block; width: 100%; max-width: 60px; height: calc(var(--h) * .82); min-height: 3px; background: var(--stop); border-radius: 4px 4px 0 0; transform-origin: bottom; animation: grow .9s var(--ease-out) both; animation-delay: calc(var(--i) * 90ms); }
+@keyframes grow { from { transform: scaleY(0); } }
+.bars span { font-weight: 800; font-size: .9rem; color: var(--navy); }
+.bars-x { display: flex; gap: 12px; font-size: .72rem; font-weight: 600; color: var(--ink-2); margin-top: 8px; }
+.bars-x span { flex: 1; text-align: center; }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kpi { padding: 14px; border-radius: 8px; background: var(--paper); }
+.kpi b { display: block; font-size: 1.8rem; font-weight: 800; color: var(--navy); line-height: 1.1; }
+.kpi span { font-size: .8rem; color: var(--ink-2); }
+.ia-out { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+.ia-out div { padding: 10px 12px; border-radius: 6px; background: var(--paper); font-size: .88rem; min-width: 0; }
+.ia-out span { display: block; font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); }
+.ia-out b { color: var(--navy); overflow-wrap: anywhere; }
+.tbl-wrap { overflow-x: auto; }
+table.protos { width: 100%; border-collapse: collapse; font-size: .86rem; min-width: 520px; }
+.protos th { text-align: left; font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); padding: 8px 10px; border-bottom: 2px solid var(--rule); white-space: nowrap; }
+.protos td { padding: 10px; border-bottom: 1px solid var(--sheet-2); vertical-align: top; }
+.protos tr.newrow td { background: var(--blue-wash); }
+.protos .cat { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.protos .cat i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.late { color: var(--stop); font-weight: 700; }
+.msg-preview { padding: 14px 16px; border-radius: 4px 14px 14px 14px; background: var(--go-wash); font-size: .92rem; line-height: 1.5; }
+
 .mob-nav { display: none; }
 body.paused *, body.paused *::before, body.paused *::after { animation-play-state: paused !important; }
 
@@ -387,6 +461,7 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   .tram { grid-template-columns: 96px minmax(0,1fr); }
   .tram .mini { grid-column: 1 / -1; }
   .f-grid { grid-template-columns: 1fr 1fr; }
+  .terr, .prova { grid-template-columns: minmax(0,1fr); }
 }
 @media (max-width: 760px) {
   .h-nav, .utils .u span, .user div, .sep { display: none; }
@@ -400,9 +475,9 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   footer { padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px)); }
   .page { gap: 26px; }
   .card { padding: 18px; }
-  .mob-nav { display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--sheet); box-shadow: 0 -1px 6px rgba(0,0,0,.14);
+  .mob-nav { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--sheet); box-shadow: 0 -1px 6px rgba(0,0,0,.14);
     padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); }
-  .mob-nav a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 7px 0; font-size: .7rem; font-weight: 700; color: var(--ink-2); text-decoration: none; border-radius: 8px; }
+  .mob-nav a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 7px 0; font-size: .64rem; font-weight: 700; color: var(--ink-2); text-decoration: none; border-radius: 8px; }
   .mob-nav a svg { width: 22px; height: 22px; }
   .mob-nav a[aria-current="page"] { color: var(--blue); background: var(--blue-wash); }
   .mandato { grid-template-columns: minmax(0,1fr); gap: 20px; }
@@ -428,6 +503,12 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   .scan span { font-size: 0; }
   .hold-btn { width: 100%; }
   .f-grid { grid-template-columns: minmax(0,1fr); }
+  .alerta { grid-template-columns: auto minmax(0,1fr); }
+  .alerta-actions { grid-column: 1 / -1; }
+  .ia-out { grid-template-columns: minmax(0,1fr); }
+  .bars { gap: 6px; height: 160px; }
+  .bars-x { gap: 6px; }
+  .bairro-label { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; transition-delay: 0s !important; }
@@ -459,7 +540,7 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   <div class="wrap-x">
     <div class="f-grid">
       <div class="f-brand"><b>Gabinete Digital</b><span>Pesquisa legislativa, agenda e comunicação do mandato em um só lugar.</span></div>
-      <div><h3>Mandato</h3><ul><li>Projetos de lei</li><li>Indicações e requerimentos</li><li>Agenda pública</li></ul></div>
+      <div><h3>Mandato</h3><ul><li>Demandas no mapa</li><li>Projetos de lei</li><li>Indicações e requerimentos</li><li>Agenda pública</li></ul></div>
       <div><h3>Transparência</h3><ul><li>Prestação de contas</li><li>Verba de gabinete</li><li>Acesso à informação</li></ul></div>
       <div><h3>Fontes</h3><ul><li>LexML Brasil</li><li>STF e STJ</li><li>Querido Diário</li></ul></div>
     </div>
@@ -481,7 +562,9 @@ const ICON = {
   x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
   plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>'
 };
-const ROUTES = [ { id: 'painel', label: 'Painel' }, { id: 'projetos', label: 'Projetos de lei' }, { id: 'agenda', label: 'Agenda' }, { id: 'comunicacao', label: 'Comunicação' } ];
+ICON.territorio = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+ICON.alert = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4.5M12 17.5v.5"/></svg>';
+const ROUTES = [ { id: 'painel', label: 'Painel' }, { id: 'territorio', label: 'Demandas' }, { id: 'projetos', label: 'Projetos de lei' }, { id: 'agenda', label: 'Agenda' }, { id: 'comunicacao', label: 'Comunicação' } ];
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const store = {
@@ -615,6 +698,7 @@ function viewPainel() {
   const saud = h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite';
   return head('painel', `${saud}, gabinete.`,
       `${DIAS[TODAY.getDay()]}, ${fmt(TODAY)}. ${hoje.length} compromissos hoje, ${PROJETOS.filter(p => p.lane < 3).length} projetos tramitando e ${posts.filter(p => p.st === 'stop').length} post barrado pela regra eleitoral.`) + `
+  ${painelAlerta()}
   <section class="card rv" style="--i:1" aria-labelledby="h-mandato">
     <div class="mandato">
       <div>
@@ -640,7 +724,7 @@ function viewPainel() {
     <div class="trams">${PROJETOS.map((p, i) => `<div class="tram"><span class="tag">${p.n}</span><b>${esc(p.t)}</b>${mini(p.lane, i)}</div>`).join('')}</div>
   </section>
   <section class="rv" style="--i:5" aria-labelledby="h-dem">
-    <div class="sec-h"><h2 id="h-dem">O que os moradores pediram</h2><a href="#agenda">Todas as demandas</a></div>
+    <div class="sec-h"><h2 id="h-dem">O que os moradores pediram</h2><a href="#territorio">Ver no mapa</a></div>
     <div class="asks">${DEMANDAS.map(d => `<div class="ask-card" style="--c:${d.cor}"><span class="kicker">${d.bairro}</span><p>${esc(d.t)}</p>${stTag(d.c, d.st)}</div>`).join('')}</div>
   </section>`;
 }
@@ -881,6 +965,301 @@ function viewComunicacao() {
   </div>`;
 }
 
+/* ---------- Demandas no mapa: inteligência territorial ---------- */
+const CATS = {
+  luz: { label: 'Iluminação pública', c: '#E8590C' },
+  via: { label: 'Buraco na via', c: '#7B3FA0' },
+  poda: { label: 'Poda de árvore', c: '#168821' },
+  lixo: { label: 'Lixo e entulho', c: '#A87B00' },
+  saude: { label: 'Saúde', c: '#1351B4' },
+  transito: { label: 'Trânsito', c: '#0E7C86' }
+};
+const CAT_TXT = {
+  luz: { alerta: 'Ponto crítico de apagão', problema: 'falta de iluminação pública', pedido: 'a implantação de uma nova rede de iluminação', orgao: 'Secretaria Municipal de Serviços Urbanos', diag: 'Falha sistêmica da rede', nec: 'Nova rede de iluminação' },
+  via: { alerta: 'Concentração de buracos', problema: 'buracos na via', pedido: 'o recapeamento das ruas afetadas', orgao: 'Secretaria Municipal de Obras', diag: 'Desgaste do pavimento na região', nec: 'Recapeamento' },
+  poda: { alerta: 'Risco de queda de árvores', problema: 'árvores sem poda', pedido: 'um mutirão de poda com avaliação técnica', orgao: 'Secretaria Municipal de Meio Ambiente', diag: 'Falta de manutenção preventiva', nec: 'Plano de poda' },
+  lixo: { alerta: 'Foco de descarte irregular', problema: 'lixo e entulho acumulados', pedido: 'reforço da coleta e fiscalização', orgao: 'Secretaria Municipal de Serviços Urbanos', diag: 'Coleta abaixo da demanda', nec: 'Reforço da coleta' },
+  saude: { alerta: 'Gargalo no atendimento de saúde', problema: 'falta de atendimento na UBS', pedido: 'reforço da equipe médica', orgao: 'Secretaria Municipal de Saúde', diag: 'Equipe abaixo da demanda', nec: 'Mais profissionais' },
+  transito: { alerta: 'Ponto de risco no trânsito', problema: 'risco de acidentes', pedido: 'sinalização e redutores de velocidade', orgao: 'Secretaria Municipal de Mobilidade', diag: 'Sinalização insuficiente', nec: 'Sinalização nova' }
+};
+const MAP_B = [
+  { n: 'Vila Nova', p: [[70,50],[300,40],[315,185],[95,205]] },
+  { n: 'Morro do Sol', p: [[310,40],[505,45],[495,175],[318,185]] },
+  { n: 'Jardim Zaíra', p: [[512,45],[750,40],[765,235],[560,250],[500,178]] },
+  { n: 'Jardim Esperança', p: [[95,212],[320,192],[338,322],[170,430],[60,335]] },
+  { n: 'Centro', p: [[322,190],[495,182],[555,255],[505,312],[340,320]] },
+  { n: 'São José', p: [[340,328],[505,318],[540,455],[330,465],[185,435]] },
+  { n: 'Parque Azul', p: [[512,316],[562,258],[768,244],[780,455],[548,458]] }
+];
+const STREETS = ['M0 194 C 200 190, 500 172, 800 160', 'M316 0 C 325 160, 340 320, 335 500', 'M508 0 C 500 120, 548 260, 545 500', 'M40 445 C 300 360, 520 300, 800 250', 'M120 0 C 160 120, 120 300, 60 500', 'M500 178 C 600 150, 700 120, 800 110'];
+const RUAS = ['Rua das Acácias', 'Rua dos Ipês', 'Av. Principal', 'Rua Bahia', 'Rua Sergipe', 'Rua Goiás', 'Rua Paraná', 'Rua das Rosas', 'Rua Itapeva', 'Rua Japurá', 'Av. Brasil', 'Rua Tietê', 'Rua Xingu', 'Rua Araguaia', 'Travessa Jacarandá'];
+const mkRng = s => () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
+const gauss = r => Math.sqrt(-2 * Math.log(r() || 1e-9)) * Math.cos(2 * Math.PI * r());
+function inPoly(x, y, p) { let c = false; for (let i = 0, j = p.length - 1; i < p.length; j = i++) { const [xi, yi] = p[i], [xj, yj] = p[j]; if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c; } return c; }
+function randIn(p, r) { const xs = p.map(q => q[0]), ys = p.map(q => q[1]); let x, y, k = 0; do { x = Math.min(...xs) + r() * (Math.max(...xs) - Math.min(...xs)); y = Math.min(...ys) + r() * (Math.max(...ys) - Math.min(...ys)); } while (!inPoly(x, y, p) && ++k < 200); return [Math.round(x), Math.round(y)]; }
+function near(cx, cy, sx, sy, p, r) { let x, y, k = 0; do { x = cx + gauss(r) * sx; y = cy + gauss(r) * sy; } while (!inPoly(x, y, p) && ++k < 200); return [Math.round(x), Math.round(y)]; }
+const polyTop = p => { const xs = p.map(q => q[0]); return [Math.round(xs.reduce((a, b) => a + b, 0) / xs.length), Math.min(...p.map(q => q[1])) + 24]; };
+const fold = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+function seedProtos() {
+  const r = mkRng(11); const out = [];
+  const zai = MAP_B[2].p;
+  [3, 4, 5, 6, 8, 9].forEach((n, w) => { for (let k = 0; k < n; k++) { const [x, y] = near(632, 138, 34, 30, zai, r); out.push({ cat: 'luz', x, y, b: 'Jardim Zaíra', ago: (5 - w) * 7 + Math.floor(r() * 7), st: 'aberto' }); } });
+  for (let k = 0; k < 9; k++) { const [x, y] = near(420, 398, 26, 20, MAP_B[5].p, r); out.push({ cat: 'via', x, y, b: 'São José', ago: Math.floor(r() * 45), st: 'aberto' }); }
+  const outros = ['via', 'poda', 'lixo', 'saude', 'transito'];
+  for (let i = 0; i < 46; i++) {
+    const b = MAP_B[Math.floor(r() * MAP_B.length)]; const [x, y] = randIn(b.p, r);
+    const cat = r() < .1 ? 'luz' : outros[Math.floor(r() * outros.length)];
+    out.push({ cat, x, y, b: b.n, ago: Math.floor(r() * 85), st: r() < .3 ? 'resolvido' : 'aberto' });
+  }
+  out.sort((a, b) => b.ago - a.ago);
+  return out.map((p, i) => ({ id: '#' + String(350 + i).padStart(4, '0'), cat: p.cat, x: p.x, y: p.y, b: p.b, st: p.st, date: ymd(addDays(TODAY, -p.ago)), end: RUAS[Math.floor(r() * RUAS.length)] + ', ' + (10 + Math.floor(r() * 890)) }));
+}
+let PROTOS = seedProtos().concat(store.get('protosNovos', []));
+const waitOf = p => Math.max(0, -daysTo(fromYmd(p.date)));
+const T = { cats: new Set(Object.keys(CATS)), period: 60, mode: 'heat', sel: 0, cutoff: null, openDoc: false, ex: 0 };
+let pendingTema = null;
+
+function visible(ignoreCats) {
+  return PROTOS.filter(p => waitOf(p) <= T.period && (ignoreCats || T.cats.has(p.cat)) && (!T.cutoff || fromYmd(p.date) <= T.cutoff));
+}
+function clusters() {
+  const pts = visible().filter(p => p.st === 'aberto'); const res = [];
+  Object.keys(CATS).forEach(c => {
+    let rest = pts.filter(p => p.cat === c);
+    while (rest.length >= 6) {
+      let bn = [];
+      rest.forEach(p => { const nb = rest.filter(q => Math.hypot(p.x - q.x, p.y - q.y) < 70); if (nb.length > bn.length) bn = nb; });
+      if (bn.length < 6) break;
+      const cx = bn.reduce((a, q) => a + q.x, 0) / bn.length, cy = bn.reduce((a, q) => a + q.y, 0) / bn.length;
+      const mem = rest.filter(q => Math.hypot(cx - q.x, cy - q.y) < 110);
+      rest = rest.filter(q => !mem.includes(q));
+      const waits = mem.map(waitOf);
+      const tally = {}; mem.forEach(q => tally[q.b] = (tally[q.b] || 0) + 1);
+      const weeks = [0, 0, 0, 0, 0, 0]; mem.forEach(q => { const w = 5 - Math.min(5, Math.floor(waitOf(q) / 7)); weeks[w]++; });
+      const mx = mem.reduce((a, q) => Math.max(a, Math.hypot(cx - q.x, cy - q.y)), 0);
+      const wait = Math.round(waits.reduce((a, b) => a + b, 0) / waits.length);
+      res.push({ cat: c, n: mem.length, cx, cy, r: Math.min(140, mx + 16), b: Object.entries(tally).sort((a, b) => b[1] - a[1])[0][0], wait, maxWait: Math.max(...waits), weeks, mem, score: mem.length * (1 + wait / 30) });
+    }
+  });
+  return res.sort((a, b) => b.score - a.score);
+}
+const trendOf = c => { const prev = c.weeks[2] + c.weeks[3], last = c.weeks[4] + c.weeks[5]; return prev ? Math.round((last - prev) / prev * 100) : 100; };
+const level = c => c.n >= 20 ? 'crit' : c.n >= 10 ? 'atencao' : 'obs';
+
+function mapSvg() {
+  const pts = visible(); const cl = clusters(); const open = pts.filter(p => p.st === 'aberto');
+  const hotB = new Set(cl.filter(c => c.n >= 20).map(c => c.b));
+  return `<svg viewBox="0 0 800 500" role="img" aria-label="Mapa da cidade com ${open.length} pedidos abertos${cl[0] ? ' e concentração no bairro ' + cl[0].b : ''}">
+    <defs><radialGradient id="heatG"><stop offset="0" stop-color="#FF4D1A" stop-opacity=".36"/><stop offset=".55" stop-color="#FF4D1A" stop-opacity=".12"/><stop offset="1" stop-color="#FF4D1A" stop-opacity="0"/></radialGradient></defs>
+    <rect width="800" height="500" style="fill:var(--map-bg)"/>
+    ${MAP_B.map(b => `<path class="bairro-shape ${hotB.has(b.n) ? 'hot' : ''}" d="M${b.p.map(q => q.join(' ')).join(' L')} Z"/>`).join('')}
+    ${STREETS.map(d => `<path class="street" d="${d}"/>`).join('')}
+    ${MAP_B.map(b => { const [x, y] = polyTop(b.p); return `<text class="bairro-label" x="${x}" y="${y}" text-anchor="middle">${b.n}</text>`; }).join('')}
+    ${T.mode === 'heat' ? open.map(p => `<circle cx="${p.x}" cy="${p.y}" r="48" fill="url(#heatG)"/>`).join('') : ''}
+    ${cl.filter(c => c.n >= 10).map(c => { const i = cl.indexOf(c); return `<circle class="ring" cx="${c.cx.toFixed(0)}" cy="${c.cy.toFixed(0)}" r="${c.r.toFixed(0)}" style="opacity:${i === T.sel ? 1 : .4}"/>${i === T.sel ? `<text class="ring-tag" x="${c.cx.toFixed(0)}" y="${(c.cy + c.r + 16).toFixed(0)}" text-anchor="middle">${c.n} chamados</text>` : ''}`; }).join('')}
+    ${pts.map(p => `<circle class="pin ${p.novo ? 'new' : ''}" data-pin="${p.id}" cx="${p.x}" cy="${p.y}" r="${p.st === 'aberto' ? 5.5 : 4}" style="fill:${p.st === 'aberto' ? CATS[p.cat].c : 'var(--rule-strong)'};stroke:var(--sheet);stroke-width:1.6"><title>${p.id} · ${CATS[p.cat].label} · ${esc(p.end)}</title></circle>`).join('')}
+  </svg>${T.cutoff ? `<span class="map-stamp">Até ${dm(T.cutoff)}</span>` : ''}`;
+}
+function chipsHtml() {
+  const all = visible(true).filter(p => p.st === 'aberto');
+  return Object.entries(CATS).map(([k, c]) => `<button class="chip" data-cat="${k}" aria-pressed="${T.cats.has(k)}" style="--c:${c.c}"><i></i>${c.label} <b>${all.filter(p => p.cat === k).length}</b></button>`).join('');
+}
+function hotListHtml() {
+  const cl = clusters();
+  if (!cl.length) return '<div class="empty">Nenhuma concentração com os filtros atuais. Os pedidos estão espalhados.</div>';
+  return cl.slice(0, 5).map((c, i) => `<button class="hot ${level(c)}" data-hot="${i}" aria-pressed="${i === T.sel}"><span class="rank">${i + 1}</span><span><b>${CAT_TXT[c.cat].alerta}</b><small>${c.b} · espera média de ${c.wait} dias</small></span><span class="n">${c.n}<small>chamados</small></span></button>`).join('');
+}
+function provaHtml() {
+  const cl = clusters(); const c = cl[T.sel] || cl[0];
+  if (!c) return '<div class="empty">Sem concentração para analisar. Amplie o período ou ligue mais categorias.</div>';
+  const max = Math.max(...c.weeks, 1); const tr = trendOf(c);
+  const lbl = ['há 5 sem.', 'há 4 sem.', 'há 3 sem.', 'há 2 sem.', 'semana passada', 'esta semana'];
+  return `<div class="sec-h"><div><span class="kicker">Prova estatística · ${c.b}</span><h2>Diagnóstico: ${CAT_TXT[c.cat].diag.toLowerCase()}</h2></div><span class="tag">Necessidade: ${CAT_TXT[c.cat].nec}</span></div>
+    <div class="prova">
+      <div><div class="bars">${c.weeks.map((n, i) => `<div><span>${n}</span><i style="--h:${n / max * 100}%;--i:${i}"></i></div>`).join('')}</div>
+      <div class="bars-x">${lbl.map(l => `<span>${l}</span>`).join('')}</div>
+      <p class="hint" style="margin-top:10px">Pedidos de ${CATS[c.cat].label.toLowerCase()} por semana dentro da área marcada no mapa.</p></div>
+      <div><div class="kpis">
+        <div class="kpi"><b class="num">${c.n}</b><span>pedidos com endereço no mapa</span></div>
+        <div class="kpi"><b class="num">${c.wait} dias</b><span>de espera média</span></div>
+        <div class="kpi"><b class="num">${c.maxWait} dias</b><span>esperando o pedido mais antigo</span></div>
+        <div class="kpi"><b class="num" style="color:${tr > 0 ? 'var(--stop)' : 'var(--go)'}">${tr > 0 ? '+' : ''}${tr}%</b><span>de pedidos nas 2 últimas semanas</span></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><button class="btn cta" data-act="oficio">Gerar cobrança à prefeitura</button><button class="btn" data-act="lote">Responder os ${c.n} moradores</button></div></div>
+    </div>`;
+}
+function alertaHtml(c, onPainel) {
+  const tr = trendOf(c);
+  return `<section class="alerta rv" style="--i:1" aria-labelledby="h-alerta"><span class="pulse" aria-hidden="true">${ICON.alert}</span>
+    <div><span class="kicker" style="color:var(--stop)">Alerta estratégico</span><h2 id="h-alerta">${CAT_TXT[c.cat].alerta} em formação no bairro ${c.b}</h2>
+    <div class="facts"><span><b>${c.n}</b> pedidos de ${CATS[c.cat].label.toLowerCase()}</span><span>espera média de <b>${c.wait} dias</b></span><span><b>${tr > 0 ? '+' : ''}${tr}%</b> nas 2 últimas semanas</span></div></div>
+    <div class="alerta-actions">${onPainel ? `<a class="btn cta" href="#territorio">Ver no mapa</a><button class="btn" data-act="oficioGo">Gerar cobrança</button>` : `<button class="btn cta" data-act="oficio">Gerar cobrança à prefeitura</button><button class="btn" data-act="lote">Responder moradores</button>`}</div></section>`;
+}
+function painelAlerta() { const keep = T.cutoff; T.cutoff = null; const c = clusters().find(x => x.n >= 20); T.cutoff = keep; return c ? alertaHtml(c, true) : ''; }
+function tableHtml() {
+  const rows = PROTOS.slice().sort((a, b) => (b.novo ? 1 : 0) - (a.novo ? 1 : 0) || b.date.localeCompare(a.date) || b.id.localeCompare(a.id)).slice(0, 8);
+  return `<table class="protos"><thead><tr><th>Protocolo</th><th>Pedido</th><th>Endereço</th><th>Espera</th></tr></thead><tbody>${rows.map(p => `<tr class="${p.novo ? 'newrow' : ''}"><td><b>${p.id}</b><br><span class="muted small">${dm(fromYmd(p.date))}</span></td><td><span class="cat" style="--c:${CATS[p.cat].c}"><i></i>${CATS[p.cat].label}</span></td><td>${esc(p.end)}<br><span class="muted small">${esc(p.b)}</span></td><td class="${p.st === 'aberto' && waitOf(p) > 21 ? 'late' : ''}">${p.st === 'aberto' ? dias(waitOf(p)) : 'Resolvido'}</td></tr>`).join('')}</tbody></table>`;
+}
+function dias(n) { return n === 0 ? 'hoje' : n === 1 ? '1 dia' : n + ' dias'; }
+function infoTxt() { const n = visible().filter(p => p.st === 'aberto').length; return `${n} pedidos abertos nos últimos ${T.period} dias`; }
+
+function viewTerritorio() {
+  const cl = clusters(); if (T.sel >= cl.length) T.sel = 0;
+  const top = cl.find(c => c.n >= 20);
+  return head('territorio', 'Demandas no mapa', 'Cada pedido de morador vira um ponto no mapa. O sistema cruza o endereço, o tipo de problema e o tempo de espera, e mostra quando pedidos que parecem isolados são, na verdade, um problema do bairro inteiro.') +
+  (top ? alertaHtml(top, false) : '') + `
+  <div class="terr">
+    <section class="card rv" style="--i:2" aria-labelledby="h-mapa">
+      <h2 id="h-mapa" class="sr">Mapa de pedidos</h2>
+      <div class="map-tools"><div class="chips" id="chips">${chipsHtml()}</div>
+        <div class="seg" id="segMode" role="group" aria-label="Visualização"><button data-act="mode" data-v="heat" aria-pressed="${T.mode === 'heat'}">Mancha de calor</button><button data-act="mode" data-v="pins" aria-pressed="${T.mode === 'pins'}">Só pontos</button></div></div>
+      <div class="map-wrap" id="mapBox">${mapSvg()}</div>
+      <div class="map-foot"><span id="mapInfo">${infoTxt()}</span>
+        <div><div class="seg" id="segPer" role="group" aria-label="Período">${[30, 60, 90].map(d => `<button data-act="per" data-v="${d}" aria-pressed="${T.period === d}">${d} dias</button>`).join('')}</div>
+        <button class="btn" data-act="replay">Ver a mancha se formar</button></div></div>
+    </section>
+    <aside class="card rv" style="--i:3" aria-labelledby="h-hot">
+      <div class="sec-h"><h2 id="h-hot">Pontos críticos</h2><span class="muted small">por volume e espera</span></div>
+      <div class="hot-list" id="hotList">${hotListHtml()}</div>
+      <p class="hint" style="margin-top:14px">Clique em um ponto para ver a prova e gerar a cobrança.</p>
+    </aside>
+  </div>
+  <section class="card rv" style="--i:4" id="prova" aria-label="Prova estatística">${provaHtml()}</section>
+  <div id="docArea"></div>
+  <div class="reach">
+    <section class="card rv" style="--i:5" aria-labelledby="h-ia">
+      <div class="sec-h"><h2 id="h-ia">Novo pedido de morador</h2></div>
+      <form id="iaForm" class="composer">
+        <label for="iaTxt" class="hint">Cole a mensagem como chegou no WhatsApp. A IA identifica o problema, o endereço e o bairro, e fixa o ponto no mapa.</label>
+        <textarea class="input" id="iaTxt" placeholder="Boa noite! O poste da Rua Japurá, 215, no Jardim Zaíra está apagado há 3 semanas."></textarea>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn cta" type="submit">Ler e fixar no mapa</button><button class="btn" type="button" data-act="exMsg">Usar um exemplo</button></div>
+      </form>
+      <div id="iaOut"></div>
+    </section>
+    <section class="card rv" style="--i:6" aria-labelledby="h-protos">
+      <div class="sec-h"><h2 id="h-protos">Últimos protocolos</h2><span class="tag">${PROTOS.length}</span></div>
+      <div class="tbl-wrap" id="protoTable">${tableHtml()}</div>
+    </section>
+  </div>`;
+}
+function refreshTerr() {
+  const cl = clusters(); if (T.sel >= cl.length) T.sel = 0;
+  $('#mapBox').innerHTML = mapSvg(); $('#chips').innerHTML = chipsHtml(); $('#hotList').innerHTML = hotListHtml(); $('#prova').innerHTML = provaHtml();
+  $('#mapInfo').textContent = infoTxt(); $('#protoTable').innerHTML = tableHtml();
+  document.querySelectorAll('#segMode button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === T.mode));
+  document.querySelectorAll('#segPer button').forEach(b => b.setAttribute('aria-pressed', +b.dataset.v === T.period));
+}
+function currentCluster() { const cl = clusters(); return cl[T.sel] || cl[0]; }
+function oficioTexto(c) {
+  const t = CAT_TXT[c.cat]; const datas = c.mem.map(q => q.date).sort();
+  const lista = c.mem.slice().sort((a, b) => a.date.localeCompare(b.date));
+  return { assunto: `Demanda unificada: ${t.problema} no bairro ${c.b}`, orgao: t.orgao,
+    paras: [
+      `Este gabinete recebeu ${c.n} pedidos de moradores sobre ${t.problema} no bairro ${c.b}, entre ${dm(fromYmd(datas[0]))} e ${dm(fromYmd(datas[datas.length - 1]))}. Com os endereços marcados no mapa, os pedidos formam uma única área contínua. Isso indica ${t.diag.toLowerCase()}, e não defeitos isolados.`,
+      `Os pedidos aguardam em média ${c.wait} dias, e o mais antigo, ${c.maxWait} dias. O número de pedidos por semana passou de ${c.weeks[0]} para ${c.weeks[5]} no período.`,
+      `Diante disso, solicitamos: (1) vistoria técnica completa da área indicada; (2) cronograma para ${t.pedido}; (3) resposta formal a este gabinete em até 15 dias.`
+    ],
+    anexo: lista.slice(0, 10).map(q => `${q.id} · ${q.end} · aberto em ${dm(fromYmd(q.date))}`).concat(c.n > 10 ? [`e mais ${c.n - 10} protocolos`] : []) };
+}
+function abrirOficio() {
+  const c = currentCluster(); if (!c) return;
+  const o = oficioTexto(c);
+  $('#docArea').innerHTML = `<section class="card rv" aria-labelledby="h-of"><div class="sec-h"><div><span class="kicker">Cobrança institucional</span><h2 id="h-of">Ofício à ${o.orgao}</h2></div><button class="icon-btn" data-act="fecharDoc" aria-label="Fechar ofício">${ICON.x}</button></div>
+    <article class="folha" id="oficio" contenteditable="true" spellcheck="false">
+      <div class="pl-num">Ofício nº ___/${TODAY.getFullYear()} · Gabinete da Vereadora Ana Ribeiro</div>
+      <p class="muted" style="text-align:right;margin-bottom:18px">${fmt(TODAY)}</p>
+      <p><b>À ${o.orgao}</b></p><p style="margin-bottom:18px"><b>Assunto:</b> ${o.assunto}</p>
+      <div class="corpo"><p>Senhor(a) Secretário(a),</p>${o.paras.map(x => `<p>${x}</p>`).join('')}<p>Atenciosamente,</p><p><b>Ana Ribeiro</b><br>Vereadora</p>
+      <p class="just">ANEXO · PROTOCOLOS GEORREFERENCIADOS</p>${o.anexo.map(x => `<p class="small" style="margin-bottom:4px">${x}</p>`).join('')}</div>
+    </article>
+    <div class="hold-row"><button class="btn cta" data-act="copyDoc">Copiar ofício</button><button class="btn" data-act="toIndic">Transformar em indicação</button><span class="hint">Clique no texto para ajustar antes de enviar.</span></div></section>`;
+  $('#docArea').scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
+}
+function abrirLote() {
+  const c = currentCluster(); if (!c) return; const t = CAT_TXT[c.cat];
+  const msg = `Olá! Aqui é do gabinete da vereadora Ana Ribeiro. Seu pedido sobre ${t.problema} foi recebido. Ele se juntou a outros ${c.n - 1} pedidos de vizinhos do ${c.b}, e hoje enviamos um ofício único à prefeitura pedindo ${t.pedido}. Avisamos você assim que houver resposta. Seu protocolo: {protocolo}.`;
+  openDrawer(`<div class="drawer-h"><span class="kicker">Resposta em lote</span><button class="icon-btn" data-act="close" aria-label="Fechar">${ICON.x}</button></div>
+    <h2 style="font-size:1.4rem">Uma mensagem para ${c.n} moradores</h2>
+    <p class="muted">Em vez de responder um por um, o gabinete avisa todos de uma vez. Cada morador recebe o próprio número de protocolo.</p>
+    <div class="msg-preview" id="loteMsg">${esc(msg)}</div>
+    <dl class="kv"><dt>Destinatários</dt><dd>${c.n} moradores do ${c.b}</dd><dt>Canal</dt><dd>WhatsApp do gabinete</dd></dl>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn cta" data-act="enviarLote" data-n="${c.n}">Enviar para os ${c.n}</button><button class="btn" data-act="copyLote">Copiar texto</button></div>
+    <p class="hint">No protótipo o envio é simulado.</p>`);
+}
+const EXEMPLOS_MSG = [
+  'Boa noite! O poste da Rua Japurá, 215, no Jardim Zaíra está apagado há 3 semanas. A rua fica um breu.',
+  'Tem um buraco enorme na Rua Bahia, 88, no São José. Já furou o pneu de dois carros.',
+  'O galho da árvore da Rua das Rosas, 40, Vila Nova está em cima da fiação. Pode cair a qualquer hora.'
+];
+function lerMensagem(txt) {
+  if (!txt.trim()) { $('#iaTxt').focus(); return; }
+  const f = fold(txt);
+  const rules = [['luz', /luz|poste|lampada|apagad|escur|iluminac/], ['via', /buraco|asfalto|cratera|pavimento/], ['poda', /arvore|galho|poda/], ['lixo', /lixo|entulho|descarte|coleta/], ['saude', /ubs|posto de saude|medic|pediatra|consulta/], ['transito', /semaforo|faixa|lombada|transito|acidente|sinaliza/]];
+  const cat = (rules.find(([, re]) => re.test(f)) || ['lixo'])[0];
+  const m = txt.match(/(rua|av\.?|avenida|travessa|estrada|alameda)\s+[^,.;!?\n]+(,\s*(n[ºo°]\s*)?\d+)?/i);
+  const end = m ? m[0].replace(/^av\b\.?/i, 'Av.').replace(/^./, ch => ch.toUpperCase()) : 'Endereço não informado';
+  const bi = MAP_B.findIndex(b => f.includes(fold(b.n)));
+  const b = MAP_B[bi >= 0 ? bi : 4]; const r = mkRng(txt.length * 97 + PROTOS.length);
+  const [x, y] = cat === 'luz' && b.n === 'Jardim Zaíra' ? near(632, 138, 30, 26, b.p, r) : randIn(b.p, r);
+  const id = '#' + String(350 + PROTOS.length).padStart(4, '0');
+  const p = { id, cat, x, y, b: b.n, st: 'aberto', date: ymd(TODAY), end, novo: true };
+  PROTOS.push(p); store.set('protosNovos', PROTOS.filter(q => q.novo || q.salvo).map(q => ({ ...q, novo: false, salvo: true })));
+  T.cats.add(cat);
+  $('#iaOut').innerHTML = `<div class="ia-out"><div><span>Problema</span><b>${CATS[cat].label}</b></div><div><span>Endereço</span><b>${esc(end)}</b></div><div><span>Bairro</span><b>${b.n}${bi < 0 ? ' (confirmar)' : ''}</b></div></div>`;
+  $('#iaTxt').value = '';
+  refreshTerr();
+  const cl = clusters().find(c => c.mem.includes(p));
+  toast(cl && cl.n >= 10 ? `Protocolo ${id} fixado. Ele entrou no ponto crítico do ${cl.b}.` : `Protocolo ${id} fixado no mapa`);
+  setTimeout(() => { p.novo = false; }, 1200);
+  $('#mapBox').scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'center' });
+}
+function replay() {
+  if (reduced()) { toast('Animação desligada pela preferência de movimento reduzido'); return; }
+  const start = addDays(TODAY, -T.period); const DUR = 4000; let t0 = null;
+  const step = ts => {
+    if (!t0) t0 = ts; const k = Math.min(1, (ts - t0) / DUR);
+    T.cutoff = addDays(start, Math.round(k * T.period));
+    $('#mapBox').innerHTML = mapSvg(); $('#mapInfo').textContent = infoTxt();
+    if (k < 1 && $('#mapBox')) requestAnimationFrame(step); else { T.cutoff = null; refreshTerr(); }
+  };
+  requestAnimationFrame(step);
+}
+function pinDrawer(id) {
+  const p = PROTOS.find(q => q.id === id); if (!p) return;
+  const c = clusters().find(x => x.mem.includes(p));
+  openDrawer(`<div class="drawer-h"><span class="kicker" style="color:${CATS[p.cat].c}">${CATS[p.cat].label}</span><button class="icon-btn" data-act="close" aria-label="Fechar">${ICON.x}</button></div>
+    <h2 style="font-size:1.6rem">Protocolo ${p.id}</h2>
+    <dl class="kv"><dt>Endereço</dt><dd>${esc(p.end)}</dd><dt>Bairro</dt><dd>${esc(p.b)}</dd><dt>Aberto em</dt><dd>${fmt(fromYmd(p.date))}</dd><dt>Situação</dt><dd>${p.st === 'aberto' ? `Aguardando há ${dias(waitOf(p))}` : 'Resolvido'}</dd></dl>
+    ${c ? `<div class="callout stop"><span>Este pedido faz parte de um ponto crítico: ${c.n} pedidos parecidos no ${c.b}.</span></div>` : `<div class="callout go"><span>Pedido isolado. Nenhuma concentração por perto.</span></div>`}`);
+}
+function copyText(txt, okMsg) {
+  try { navigator.clipboard.writeText(txt).then(() => toast(okMsg), () => toast('Selecione o texto e use Ctrl+C')); } catch (e) { toast('Selecione o texto e use Ctrl+C'); }
+}
+function terrClick(b) {
+  if (b.dataset.pin) { pinDrawer(b.dataset.pin); return true; }
+  if (b.dataset.cat) { const k = b.dataset.cat; if (T.cats.has(k) && T.cats.size > 1) T.cats.delete(k); else T.cats.add(k); T.sel = 0; refreshTerr(); return true; }
+  if (b.dataset.hot) { T.sel = +b.dataset.hot; refreshTerr(); $('#prova').scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'nearest' }); return true; }
+  const a = b.dataset.act;
+  if (a === 'mode') { T.mode = b.dataset.v; refreshTerr(); return true; }
+  if (a === 'per') { T.period = +b.dataset.v; T.sel = 0; refreshTerr(); return true; }
+  if (a === 'replay') { replay(); return true; }
+  if (a === 'oficio') { abrirOficio(); return true; }
+  if (a === 'oficioGo') { T.openDoc = true; location.hash = '#territorio'; return true; }
+  if (a === 'fecharDoc') { $('#docArea').innerHTML = ''; return true; }
+  if (a === 'lote') { abrirLote(); return true; }
+  if (a === 'enviarLote') { closeDrawer(); toast(`Mensagem enviada para ${b.dataset.n} moradores`); return true; }
+  if (a === 'copyLote') { copyText($('#loteMsg').textContent, 'Texto copiado'); return true; }
+  if (a === 'copyDoc') { copyText($('#oficio').innerText, 'Ofício copiado'); return true; }
+  if (a === 'toIndic') { const c = currentCluster(); pendingTema = `${CAT_TXT[c.cat].nec} no bairro ${c.b}`; location.hash = '#projetos'; return true; }
+  if (a === 'exMsg') { $('#iaTxt').value = EXEMPLOS_MSG[T.ex++ % EXEMPLOS_MSG.length]; $('#iaTxt').focus(); return true; }
+  return false;
+}
+function afterRender(route) {
+  if (route === 'territorio' && T.openDoc) { T.openDoc = false; setTimeout(abrirOficio, 60); }
+  if (route === 'projetos' && pendingTema) { const t = pendingTema; pendingTema = null; setTimeout(() => { $('#tema').value = t; runResearch(t); }, 60); }
+}
+
 /* ---------- Navegação ---------- */
 let fontScale = store.get('font', 0);
 function applyFont() { document.body.style.fontSize = [16, 17.5, 19][fontScale] + 'px'; }
@@ -889,13 +1268,15 @@ function render() {
   const route = ROUTES.find(r => r.id === id) ? id : 'painel';
   $('#nav').innerHTML = ROUTES.map(r => `<a href="#${r.id}" ${r.id === route ? 'aria-current="page"' : ''}>${r.label}</a>`).join('');
   $('#mobNav').innerHTML = ROUTES.map(r => `<a href="#${r.id}" ${r.id === route ? 'aria-current="page"' : ''}>${ICON[r.id]}<span>${r.label.replace(' de lei', '')}</span></a>`).join('');
-  $('#view').innerHTML = { painel: viewPainel, projetos: viewProjetos, agenda: viewAgenda, comunicacao: viewComunicacao }[route]();
+  $('#view').innerHTML = { painel: viewPainel, territorio: viewTerritorio, projetos: viewProjetos, agenda: viewAgenda, comunicacao: viewComunicacao }[route]();
   if (route === 'projetos') bindHold();
+  afterRender(route);
   window.scrollTo(0, 0);
 }
 window.addEventListener('hashchange', render);
 document.addEventListener('click', ev => {
-  const b = ev.target.closest('[data-act],[data-ev],[data-ex],[data-tab],[data-post]'); if (!b) return;
+  const b = ev.target.closest('[data-act],[data-ev],[data-ex],[data-tab],[data-post],[data-pin],[data-cat],[data-hot]'); if (!b) return;
+  if (terrClick(b)) return;
   if (b.dataset.ev) return eventDrawer(b.dataset.ev);
   if (b.dataset.ex) { $('#tema').value = b.dataset.ex; return runResearch(b.dataset.ex); }
   if (b.dataset.tab) {
@@ -930,6 +1311,7 @@ document.addEventListener('click', ev => {
 document.addEventListener('submit', ev => {
   ev.preventDefault();
   if (ev.target.id === 'askForm') runResearch($('#tema').value);
+  if (ev.target.id === 'iaForm') lerMensagem($('#iaTxt').value);
   if (ev.target.id === 'evForm') {
     events.push({ id: 'e' + Date.now(), date: $('#evD').value, h: $('#evH').value, tipo: $('#evTipo').value, t: $('#evT').value, local: $('#evL').value, bairro: $('#evB').value, pessoas: '', nota: $('#evN').value });
     store.set('events', events); closeDrawer(); render(); toast('Compromisso salvo');
@@ -951,5 +1333,6 @@ applyFont();
 render();
 })();
 </script>
+
 </body>
 </html>
