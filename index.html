@@ -510,6 +510,59 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   .bars-x { gap: 6px; }
   .bairro-label { font-size: 15px; }
 }
+
+/* Mauá: mapa, resumo, ferramentas */
+.rio { fill: none; stroke: #4A90D9; stroke-width: 5; stroke-linecap: round; opacity: .55; }
+.rio-label { font: 700 11px var(--f); fill: #2F6DB0; letter-spacing: .04em; font-style: italic; pointer-events: none; }
+.trem { fill: none; stroke: var(--ink-2); stroke-width: 4; opacity: .45; }
+.trem-dash { fill: none; stroke: var(--map-bg); stroke-width: 2; stroke-dasharray: 8 8; opacity: .9; }
+.estacao circle { fill: var(--sheet); stroke: var(--ink); stroke-width: 2.5; }
+.estacao text { font: 700 11px var(--f); fill: var(--ink); paint-order: stroke; stroke: var(--sheet); stroke-width: 3px; pointer-events: none; }
+.ctx { margin-top: 16px; padding: 14px 16px; border-radius: 8px; background: var(--paper); border-left: 4px solid var(--blue); }
+.ctx p { font-size: .88rem; margin-top: 6px; color: var(--ink-2); }
+.ctx p b { color: var(--ink); }
+.brief-lede { font-size: 1.05rem; max-width: 70ch; }
+.brief-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.brief-list li { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 4px 10px; padding: 14px; border-radius: 8px; background: var(--paper); }
+.brief-list i { font-style: normal; width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
+.brief-list b { display: block; color: var(--navy); }
+.brief-list small { display: block; color: var(--ink-2); font-size: .8rem; }
+.brief-list .who { grid-column: 2; font-size: .76rem; font-weight: 700; color: var(--blue); }
+.nums { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.nums div { padding: 16px; border-radius: 8px; background: var(--paper); display: flex; flex-direction: column; gap: 4px; }
+.nums b { font-size: 1.7rem; font-weight: 800; color: var(--navy); line-height: 1.1; }
+.nums span { font-size: .86rem; color: var(--ink-2); }
+.nums a { font-size: .74rem; font-weight: 700; margin-top: auto; padding-top: 6px; }
+.prompt .seg { align-self: flex-start; width: max-content; max-width: 100%; }
+.tools { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; margin-bottom: 24px; }
+.tools button { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 10px; align-items: start; text-align: left; padding: 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--sheet); cursor: pointer; color: var(--ink); transition: border-color .25s var(--ease-out), box-shadow .25s var(--ease-out), transform .25s var(--ease-out); }
+.tools button:hover { border-color: var(--blue); transform: translateY(-1px); }
+.tools button[aria-pressed="true"] { border-color: var(--blue); box-shadow: inset 0 -4px 0 var(--blue), var(--shadow); }
+.tools i { font-style: normal; width: 26px; height: 26px; border-radius: 50%; background: var(--blue-wash); color: var(--blue); display: grid; place-items: center; font-weight: 800; font-size: .78rem; }
+.tools button[aria-pressed="true"] i { background: var(--blue); color: var(--blue-ink); }
+.tools b { display: block; font-size: .9rem; color: var(--navy); line-height: 1.25; }
+.tools small { display: block; font-size: .76rem; color: var(--ink-2); margin-top: 2px; }
+.answer { padding: 18px 20px; border-radius: 8px; background: var(--paper); border-left: 4px solid var(--blue); }
+.answer .q { font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.checks { display: flex; flex-direction: column; }
+.check { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 14px; padding: 12px 0; border-top: 1px solid var(--sheet-2); }
+.check b { color: var(--navy); } .check p { font-size: .9rem; color: var(--ink-2); } .check small { font-size: .74rem; font-weight: 700; color: var(--ink-2); }
+.mentor-sum { margin-bottom: 8px; }
+.trad { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
+.trad-out { min-height: 168px; padding: 12px 14px; border-radius: 6px; background: var(--paper); line-height: 1.6; margin-top: 4px; }
+.trad-out mark { background: var(--go-wash); color: var(--ink); padding: 0 3px; border-radius: 3px; }
+.gloss { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.gloss span { font-size: .8rem; padding: 4px 10px; border-radius: 999px; background: var(--paper); }
+.gloss s { color: var(--ink-2); margin-right: 4px; }
+.diario { display: flex; flex-direction: column; }
+.d-row { display: grid; grid-template-columns: 52px 110px minmax(0,1fr); gap: 12px; align-items: start; padding: 12px 0; border-top: 1px solid var(--sheet-2); }
+.d-row time { font-weight: 800; color: var(--navy); font-size: .9rem; }
+.d-row .tag { justify-self: start; }
+.d-row p { font-size: .92rem; } .d-row small { display: block; color: var(--ink-2); font-size: .78rem; }
+.ia-out.tri { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.urg-alta { color: var(--stop); } .urg-media { color: var(--hold); }
+@media (max-width: 980px) { .tools { grid-template-columns: repeat(2, minmax(0,1fr)); } .brief-list, .nums { grid-template-columns: minmax(0,1fr); } .trad { grid-template-columns: minmax(0,1fr); } }
+@media (max-width: 560px) { .tools { grid-template-columns: minmax(0,1fr); } .tools button { padding: 10px 12px; } .d-row { grid-template-columns: 46px minmax(0,1fr); } .d-row p { grid-column: 1 / -1; } .check { grid-template-columns: minmax(0,1fr); gap: 4px; } .ia-out.tri { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; transition-delay: 0s !important; }
 }
@@ -523,7 +576,7 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   <div class="wrap-x h-top">
     <a class="brand" href="#painel" aria-label="Gabinete Digital, início">
       <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#1351B4"/><path d="M9 25h22" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="25" r="3.6" fill="#fff"/><circle cx="20.5" cy="25" r="3.6" fill="#fff"/><circle cx="29" cy="25" r="4" fill="#FFCD07" stroke="#fff" stroke-width="2"/><path d="M12 15h16" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg>
-      <span class="brand-txt"><small>Câmara Municipal</small><b>Gabinete Digital</b></span>
+      <span class="brand-txt"><small>Mauá · SP</small><b>Gabinete Digital</b></span>
     </a>
     <div class="utils">
       <button class="u" data-act="theme" aria-label="Alternar alto contraste e modo escuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg><span>Contraste</span></button>
@@ -534,17 +587,17 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   </div>
   <div class="h-nav"><div class="wrap-x"><nav id="nav" aria-label="Menu principal"></nav></div></div>
 </header>
-<div class="notice"><div class="wrap-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg><span>Protótipo para demonstração. Vereadora, bairros, projetos e pesquisas são exemplos.</span></div></div>
+<div class="notice"><div class="wrap-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg><span>Protótipo. Os bairros, leis e casos de Mauá são reais e trazem a fonte. A vereadora, a equipe e os pedidos de moradores são simulados.</span></div></div>
 <main id="main" tabindex="-1"><div class="wrap-x page" id="view"></div></main>
 <footer>
   <div class="wrap-x">
     <div class="f-grid">
-      <div class="f-brand"><b>Gabinete Digital</b><span>Pesquisa legislativa, agenda e comunicação do mandato em um só lugar.</span></div>
+      <div class="f-brand"><b>Gabinete Digital</b><span>Inteligência territorial, apoio a projetos de lei, agenda e comunicação do mandato, feito para Mauá.</span></div>
       <div><h3>Mandato</h3><ul><li>Demandas no mapa</li><li>Projetos de lei</li><li>Indicações e requerimentos</li><li>Agenda pública</li></ul></div>
       <div><h3>Transparência</h3><ul><li>Prestação de contas</li><li>Verba de gabinete</li><li>Acesso à informação</li></ul></div>
-      <div><h3>Fontes</h3><ul><li>LexML Brasil</li><li>STF e STJ</li><li>Querido Diário</li></ul></div>
+      <div><h3>Fontes</h3><ul><li>LexML Brasil</li><li>Legislação de Mauá</li><li>STF e TJ-SP</li><li>IBGE e TSE</li></ul></div>
     </div>
-    <div class="f-base"><span>Protótipo de demonstração. Todos os nomes e dados são fictícios.</span><span>Regras eleitorais com base na Lei 9.504/1997. Confirmar com o calendário do TSE.</span></div>
+    <div class="f-base"><span>Protótipo. Dados de Mauá: IBGE, Diário do Grande ABC e Prefeitura. Pedidos e equipe simulados.</span><span>Regras eleitorais com base na Lei 9.504/1997. Confirmar com o calendário do TSE.</span></div>
   </div>
 </footer>
 <nav class="mob-nav" id="mobNav" aria-label="Menu principal"></nav>
@@ -568,8 +621,8 @@ const ROUTES = [ { id: 'painel', label: 'Painel' }, { id: 'territorio', label: '
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const store = {
-  get(k, d) { try { const v = localStorage.getItem('gd3:' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
-  set(k, v) { try { localStorage.setItem('gd3:' + k, JSON.stringify(v)); } catch (e) {} }
+  get(k, d) { try { const v = localStorage.getItem('gd4:' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('gd4:' + k, JSON.stringify(v)); } catch (e) {} }
 };
 const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -607,16 +660,16 @@ function railPos(date, stops, widths) {
 /* ---------- Dados de exemplo ---------- */
 const startOfWeek = (() => { const d = new Date(TODAY); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return d; })();
 const SEED = [
-  [0,'09:00','sessao','Sessão ordinária','Plenário','Centro','Vereadores, imprensa','Votação do PL 41/2026, iluminação nas praças.'],
-  [0,'15:00','reuniao','Associação de moradores','Sede da associação','Jardim Esperança','Sr. Carlos, presidente','Pedido de faixa de pedestres na Rua das Acácias.'],
-  [1,'10:00','bairro','Visita à UBS','UBS Vila Nova','Vila Nova','Diretora da UBS','Falta pediatra às terças.'],
-  [1,'14:00','audiencia','Audiência sobre transporte','Auditório da Câmara','Centro','Secretaria de Mobilidade','Tarifa e linhas noturnas.'],
-  [2,'09:30','sessao','Comissão de Educação','Sala 3','Centro','Membros da comissão','Parecer sobre merenda orgânica.'],
-  [2,'18:30','bairro','Caminhada no bairro','Praça São José','São José','Lideranças locais','Iluminação e poda de árvores.'],
-  [3,'09:00','sessao','Sessão ordinária','Plenário','Centro','',''],
-  [3,'16:00','reuniao','Reunião na escola estadual','EE Prof. Lúcia','Jardim Esperança','Diretoria e grêmio','Segurança na saída dos alunos.'],
-  [4,'10:00','bairro','Feira do produtor','Feira livre','Vila Nova','Feirantes','Cobertura para as barracas.'],
-  [5,'09:00','bairro','Mutirão de limpeza','Córrego Azul','Parque Azul','Voluntários','Fotos para a prestação de contas.']
+  [0,'09:00','sessao','Sessão ordinária','Plenário da Câmara','Centro','Vereadores, imprensa','Votação do PL 41/2026, painel público dos chamados de iluminação.'],
+  [0,'15:00','bairro','Visita ao Chafik/Macuco','Cras Macuco','Jardim Zaíra','Lideranças locais','Andamento da urbanização (PAC Periferia Viva) e treino das sirenes.'],
+  [1,'10:00','reuniao','Reunião com a Defesa Civil','Sede da Defesa Civil','Centro','Coordenação da Defesa Civil','Setores de risco do PMRR no Jardim Zaíra.'],
+  [1,'14:00','audiencia','Audiência sobre abastecimento','Auditório da Câmara','Centro','Sabesp, moradores','Falta de água nas partes altas do Jardim Oratório.'],
+  [2,'09:30','sessao','Comissão de Obras','Sala das comissões','Centro','Membros da comissão','Parecer sobre o pedido de verba para o piscinão do Zaíra.'],
+  [2,'18:30','bairro','Caminhada no bairro','Rua das Laranjeiras','Jardim Zaíra','Moradores','Pontos apagados levantados pelo mapa.'],
+  [3,'09:00','sessao','Sessão ordinária','Plenário da Câmara','Centro','',''],
+  [3,'16:00','bairro','Visita à UBS','UBS Macuco','Jardim Zaíra','Coordenação da UBS','Tempo de espera para consulta.'],
+  [4,'10:00','bairro','Plantão do gabinete','Estação Guapituba','Jardim Guapituba','Equipe do gabinete','Atendimento a moradores na saída do trem.'],
+  [5,'09:00','bairro','Mutirão de limpeza','Córrego Corumbé','Jardim Itapeva','Voluntários','Limpeza antes das chuvas de verão.']
 ];
 const TIPOS = {
   sessao: { label: 'Sessão e comissão', c: 'var(--t-sessao)' },
@@ -627,28 +680,28 @@ const TIPOS = {
 };
 let events = store.get('events', null) || SEED.map((e, i) => ({ id: 'e' + i, date: ymd(addDays(startOfWeek, e[0])), h: e[1], tipo: e[2], t: e[3], local: e[4], bairro: e[5], pessoas: e[6], nota: e[7] }));
 const DEMANDAS = [
-  { t: 'Faixa de pedestres na Rua das Acácias', bairro: 'Jardim Esperança', st: 'Indicação enviada', c: 'info', cor: 'var(--blue)' },
-  { t: 'Pediatra às terças na UBS', bairro: 'Vila Nova', st: 'Requerimento em análise', c: 'hold', cor: 'var(--hold)' },
-  { t: 'Poda de árvores na praça', bairro: 'São José', st: 'Resolvida', c: 'go', cor: 'var(--go)' },
-  { t: 'Cobertura para as barracas da feira', bairro: 'Vila Nova', st: 'Nova', c: 'idle', cor: 'var(--rule-strong)' }
+  { t: 'Pontos apagados na Rua das Laranjeiras', bairro: 'Jardim Zaíra', st: 'Ofício enviado', c: 'info', cor: 'var(--blue)' },
+  { t: 'Falta de água nas casas mais altas', bairro: 'Jardim Oratório', st: 'Cobrança à Sabesp', c: 'hold', cor: 'var(--hold)' },
+  { t: 'Limpeza do córrego Corumbé', bairro: 'Jardim Itapeva', st: 'Indicação enviada', c: 'info', cor: 'var(--blue)' },
+  { t: 'Rachadura em barranco', bairro: 'Chafik/Macuco', st: 'Vistoria pedida', c: 'stop', cor: 'var(--stop)' }
 ];
-const BAIRROS = [['Centro', 14], ['Vila Nova', 9], ['Jardim Esperança', 7], ['São José', 4], ['Parque Azul', 2], ['Morro do Sol', 0]];
+const BAIRROS = [['Jardim Zaíra', 14], ['Centro', 9], ['Jardim Oratório', 7], ['Jardim Itapeva', 5], ['Jardim Guapituba', 3], ['Capuava', 1], ['Parque São Vicente', 0]];
 const LANES = ['Redação', 'Comissão', 'Plenário', 'Sanção'];
 let PROJETOS = store.get('projetos', null) || [
-  { n: 'PL 41/2026', t: 'Iluminação em LED nas praças públicas', lane: 2, data: '12/09' },
-  { n: 'PL 38/2026', t: 'Programa Horta na Escola', lane: 1, data: '28/08' },
-  { n: 'PL 33/2026', t: 'Proibição de fogos com estampido', lane: 3, data: '02/07' },
-  { n: 'Rascunho', t: 'Banco de ração para protetores de animais', lane: 0, data: 'hoje' },
+  { n: 'PL 41/2026', t: 'Painel público dos chamados de iluminação', lane: 2, data: '12/09' },
+  { n: 'PL 38/2026', t: 'Aviso por SMS antes de interrupções de água', lane: 1, data: '28/08' },
+  { n: 'PL 33/2026', t: 'Rotas de fuga sinalizadas nas áreas de risco', lane: 3, data: '02/07' },
+  { n: 'Rascunho', t: 'Programa de hortas em terrenos públicos', lane: 0, data: 'hoje' },
   { n: 'PL 29/2026', t: 'Semana municipal do empreendedor jovem', lane: 1, data: '15/06' }
 ];
 const mk = (o, t, canal, st) => ({ date: ymd(addDays(TODAY, o)), t, canal, st });
 let posts = store.get('posts', null) || [
-  mk(-6, 'Resumo da sessão: PL das praças avança', 'Instagram', 'go'),
-  mk(-3, 'Vídeo da visita à UBS Vila Nova', 'Instagram', 'go'),
+  mk(-6, 'Resumo da sessão: PL da iluminação avança', 'Instagram', 'go'),
+  mk(-3, 'Vídeo da visita ao Chafik/Macuco', 'Instagram', 'go'),
   mk(-1, 'Prestação de contas de outubro', 'Facebook', 'go'),
-  mk(1, 'Convite para a audiência sobre transporte', 'Instagram', 'go'),
-  mk(2, 'Bastidores da Comissão de Educação', 'Stories', 'hold'),
-  mk(4, 'Mutirão de limpeza no Córrego Azul', 'Instagram', 'go'),
+  mk(1, 'Convite para a audiência sobre a falta de água', 'Instagram', 'go'),
+  mk(2, 'Bastidores da Comissão de Obras', 'Stories', 'hold'),
+  mk(4, 'Mutirão no córrego Corumbé', 'Instagram', 'go'),
   mk(7, 'Live com perguntas dos moradores', 'Instagram', 'hold'),
   mk(9, 'Resultado da votação do PL 41', 'Facebook', 'go'),
   mk(12, 'Arte "Conto com seu voto em 2028"', 'Instagram', 'stop'),
@@ -699,6 +752,7 @@ function viewPainel() {
   return head('painel', `${saud}, gabinete.`,
       `${DIAS[TODAY.getDay()]}, ${fmt(TODAY)}. ${hoje.length} compromissos hoje, ${PROJETOS.filter(p => p.lane < 3).length} projetos tramitando e ${posts.filter(p => p.st === 'stop').length} post barrado pela regra eleitoral.`) + `
   ${painelAlerta()}
+  ${resumoDiario()}
   <section class="card rv" style="--i:1" aria-labelledby="h-mandato">
     <div class="mandato">
       <div>
@@ -726,112 +780,163 @@ function viewPainel() {
   <section class="rv" style="--i:5" aria-labelledby="h-dem">
     <div class="sec-h"><h2 id="h-dem">O que os moradores pediram</h2><a href="#territorio">Ver no mapa</a></div>
     <div class="asks">${DEMANDAS.map(d => `<div class="ask-card" style="--c:${d.cor}"><span class="kicker">${d.bairro}</span><p>${esc(d.t)}</p>${stTag(d.c, d.st)}</div>`).join('')}</div>
+  </section>
+  <section class="card rv" style="--i:6" aria-labelledby="h-num">
+    <div class="sec-h"><div><span class="kicker">Dados oficiais e imprensa</span><h2 id="h-num">Mauá em números</h2></div></div>
+    <div class="nums">${NUMEROS.map(n => `<div><b class="num">${n.v}</b><span>${n.t}</span><a href="${n.u}" target="_blank" rel="noopener">${n.f}</a></div>`).join('')}</div>
   </section>`;
 }
 
-/* ---------- Projetos de lei ---------- */
-const EXEMPLOS = ['Proibir fogos com estampido', 'Banco de ração para protetores de animais', 'Wi-fi gratuito nas praças', 'Criar cargo de assessor na Saúde'];
+const NUMEROS = [
+  { v: '418.261', t: 'moradores no Censo 2022', f: 'IBGE', u: 'https://www.ibge.gov.br/cidades-e-estados/sp/maua.html' },
+  { v: '62,3 km²', t: 'de área territorial', f: 'IBGE', u: 'https://www.ibge.gov.br/cidades-e-estados/sp/maua.html' },
+  { v: '23', t: 'vereadores na Câmara', f: 'ABC do ABC, 02/01/2025', u: 'https://www.abcdoabc.com.br/juninho-getulio-e-reeleito-presidente-da-camara-de-maua/' },
+  { v: '143', t: 'matérias aprovadas no 1º semestre de 2026, 119 de vereadores', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4335937/maua-encerra-semestre-com-maior-numero-de-projetos-de-lei-aprovados' },
+  { v: '123', t: 'setores de risco no PMRR, 115 precisando de obras', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4264475/maua-tem-123-areas-de-risco-mapeadas' },
+  { v: '27', t: 'bairros sem água no apagão da estação elevatória, em 17/12/2025', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4275022/falta-de-energia-compromete-abastecimento-de-agua-em-27-bairros-de-maua' }
+];
+/* ---------- Projetos de lei: as cinco ferramentas do gabinete ---------- */
+const EXEMPLOS = ['Aviso por SMS antes de faltar água', 'Painel público dos chamados de iluminação', 'Rotas de fuga sinalizadas nas áreas de risco', 'Criar cargo de assessor na Saúde'];
+const TOOLS = [
+  { id: 'criador', t: 'Criador de proposições', d: 'Da ideia à minuta' },
+  { id: 'consultor', t: 'Consultor jurídico', d: 'Pergunte à base legal' },
+  { id: 'mentor', t: 'Mentor legislador', d: 'Revisa a minuta' },
+  { id: 'tradutor', t: 'Tradutor jurídico', d: 'Juridiquês para o morador' },
+  { id: 'diario', t: 'Diário do mandato', d: 'Tudo o que o gabinete fez' }
+];
+const PTIPOS = { pl: 'Projeto de lei', indicacao: 'Indicação', requerimento: 'Requerimento' };
+let TOOL = 'criador', PTIPO = 'pl';
 let research = store.get('research', null);
 let protocolado = false;
 
-function analisar(tema) {
-  const t = tema.toLowerCase();
-  const vicio = /cargo|servidor|secretaria|órgão|orgao|estrutura|salário|salario/.test(t);
-  const fogos = /fogo|estampido|rojão|rojao/.test(t);
-  const animal = /animal|animais|ração|racao|pet|cão|cao|gato/.test(t);
+/* Casos reais da Câmara de Mauá, para calibrar o risco de veto */
+const CASOS_MAUA = [
+  { t: 'No 1º semestre de 2026 a Câmara de Mauá aprovou 143 matérias, a maior marca do ABC. 119 eram de vereadores.', u: 'https://www.dgabc.com.br/Noticia/4335937/maua-encerra-semestre-com-maior-numero-de-projetos-de-lei-aprovados', f: 'Diário do Grande ABC, 17/07/2026' },
+  { t: 'Foi sancionada lei de vereador que impede, por dez anos, nomear para cargos públicos quem foi condenado por maus-tratos a animais.', u: 'https://www.dgabc.com.br/Noticia/4335937/maua-encerra-semestre-com-maior-numero-de-projetos-de-lei-aprovados', f: 'Diário do Grande ABC, 17/07/2026' },
+  { t: 'Foi vetado o projeto de vereador que trocava multas leves de trânsito por doação de sangue.', u: 'https://www.dgabc.com.br/Noticia/4335937/maua-encerra-semestre-com-maior-numero-de-projetos-de-lei-aprovados', f: 'Diário do Grande ABC, 17/07/2026' },
+  { t: 'No debate do novo Plano Diretor, vereadores questionaram trecho que permitiria ao prefeito decidir por decreto temas como uso do solo e PPPs.', u: 'https://www.dgabc.com.br/Noticia/4267327/camara-de-maua-aprova-novo-plano-diretor-e-ppa-em-primeira-votacao', f: 'Diário do Grande ABC, 04/11/2025' }
+];
+
+function analisar(tema, tipo) {
+  const t = fold(tema);
+  const vicio = /cargo|servidor|secretaria|orgao|estrutura|salario|gratificac/.test(t);
+  const agua = /agua|sabesp|abastec/.test(t);
+  const luz = /ilumina|poste|luz/.test(t);
+  const risco = /risco|desliz|encosta|defesa civil|rota de fuga|sirene/.test(t);
+  const alag = /alaga|enchente|piscin|drenag/.test(t);
   const titulo = tema.trim().replace(/^./, c => c.toUpperCase()).replace(/\.$/, '');
   const low = titulo.charAt(0).toLowerCase() + titulo.slice(1);
   const normas = [{ src: 'Constituição Federal', t: 'Art. 30, incisos I e II', d: 'O município legisla sobre interesse local e complementa leis federais e estaduais.' }];
-  const juris = [{ src: 'STF · Tema 917', t: 'Lei de vereador que gera despesa', d: 'É válida quando não mexe na estrutura da prefeitura, nas atribuições de órgãos nem no regime dos servidores.', pro: !vicio }];
-  if (fogos) {
-    normas.push({ src: 'Lei federal', t: 'Decreto-Lei 4.238/1942', d: 'Regras gerais de fabricação e comércio de fogos de artifício.' });
-    normas.push({ src: 'Outro município', t: 'Lei 16.897/2018, São Paulo', d: 'Proíbe fogos com efeito sonoro ruidoso. Bom modelo de redação.' });
-    juris.push({ src: 'STF · ADPF 567', t: 'Lei paulistana dos fogos com estampido', d: 'O STF manteve a lei municipal, por proteger saúde e meio ambiente.', pro: true });
-  } else if (animal) {
-    normas.push({ src: 'Lei federal', t: 'Lei 9.605/1998, art. 32', d: 'Define maus-tratos a animais como crime.' });
-    normas.push({ src: 'Lei federal', t: 'Lei 14.228/2021', d: 'Proíbe a eliminação de cães e gatos pelos centros de zoonoses.' });
-  } else {
-    normas.push({ src: 'Lei Orgânica', t: 'Iniciativa e competências', d: 'Conferir no texto local quais temas são só do prefeito.' });
+  const juris = [{ src: 'STF · Tema 917', t: 'Lei de vereador que gera despesa (ARE 878.911)', d: 'É válida quando não mexe na estrutura da prefeitura, nas atribuições de órgãos nem no regime dos servidores.', pro: !vicio }];
+  const contexto = [];
+  if (agua) {
+    normas.push({ src: 'Lei federal', t: 'Lei 11.445/2007, art. 40, §1º', d: 'Interrupções programadas do abastecimento devem ser comunicadas antes ao regulador e aos usuários.' });
+    normas.push({ src: 'Lei federal', t: 'Lei 13.460/2017', d: 'Direitos do usuário de serviço público, inclusive informação clara sobre o serviço.' });
+    contexto.push(...CONTEXTO.agua);
   }
-  if (vicio) juris.push({ src: 'CF · art. 61, §1º, II', t: 'Iniciativa exclusiva do prefeito', d: 'Criar cargos ou mudar a estrutura da prefeitura só por projeto do Executivo. Alto risco de veto.', pro: false });
-  const ementa = fogos ? 'Dispõe sobre a proibição do uso de fogos de artifício com estampido no Município e dá outras providências.' : `Dispõe sobre ${low} no âmbito do Município e dá outras providências.`;
-  const artigos = [
-    fogos ? 'Art. 1º Fica proibido, no território do Município, o manuseio, a queima e a soltura de fogos de artifício e artefatos pirotécnicos com efeito sonoro ruidoso.' : `Art. 1º Fica instituído(a), no âmbito do Município, ${low}, nos termos desta Lei.`,
-    fogos ? 'Art. 2º Excetuam-se da proibição os fogos de vista, que produzem efeitos visuais sem estampido.' : 'Art. 2º São objetivos desta Lei: I, ________; II, ________.',
-    'Art. 3º O descumprimento desta Lei sujeitará o infrator a multa, conforme regulamento.',
-    'Art. 4º O Poder Executivo regulamentará esta Lei no que couber.',
-    'Art. 5º Esta Lei entra em vigor na data de sua publicação.'
+  if (luz) { normas.push({ src: 'Lei federal', t: 'Lei 13.460/2017', d: 'O usuário tem direito a acompanhar o andamento da sua solicitação.' }); contexto.push(...CONTEXTO.luz); }
+  if (risco) { normas.push({ src: 'Lei federal', t: 'Lei 12.608/2012, art. 8º', d: 'Cabe ao município mapear áreas de risco, vistoriar moradias, organizar abrigos e manter a população informada.' }); contexto.push(...CONTEXTO.risco); }
+  if (alag) { normas.push({ src: 'Lei federal', t: 'Lei 12.608/2012, art. 8º', d: 'Prevenção de desastres, incluindo inundações, é dever do município.' }); contexto.push(...CONTEXTO.alaga); }
+  normas.push({ src: 'Lei Orgânica de Mauá', t: 'Iniciativa e competências', d: 'Conferir no texto oficial quais temas são de iniciativa exclusiva do prefeito.', u: 'https://sistemas.maua.sp.gov.br/legislaconsulta/' });
+  if (vicio) juris.push({ src: 'CF · art. 61, §1º, II', t: 'Iniciativa exclusiva do chefe do Executivo', d: 'Criar cargos ou mudar a estrutura da prefeitura só por projeto do prefeito. Alto risco de veto.', pro: false });
+  const ementa = `Dispõe sobre ${low} no Município de Mauá e dá outras providências.`;
+  const artigos = agua ? [
+    'Art. 1º A concessionária responsável pelo abastecimento de água no Município de Mauá deverá avisar os usuários afetados, por mensagem de texto ou aplicativo, com antecedência mínima de 48 horas, sobre interrupções programadas.',
+    'Art. 2º Nas interrupções emergenciais, o aviso será feito em até 2 horas após o início da falta, com a previsão de retorno.',
+    'Art. 3º A lista de bairros afetados e a previsão de retorno serão publicadas em página de internet de acesso livre.',
+    'Art. 4º Esta Lei entra em vigor 60 dias após a data de sua publicação.'
+  ] : [
+    `Art. 1º Fica instituído(a), no Município de Mauá, ${low}, nos termos desta Lei.`,
+    'Art. 2º São objetivos desta Lei: I, ________; II, ________.',
+    'Art. 3º As despesas decorrentes desta Lei correrão por conta de dotações orçamentárias próprias.',
+    'Art. 4º Esta Lei entra em vigor na data de sua publicação.'
   ];
-  const just = `A matéria é de interesse local (art. 30, I, da Constituição Federal) e não cria cargos nem altera a estrutura da administração, em linha com o Tema 917 do STF.${fogos ? ' Na ADPF 567, o STF reconheceu a validade de lei municipal com o mesmo objeto.' : ''}`;
-  return { tema: titulo, vicio, normas, juris, ementa, artigos, just };
+  const just = `A matéria é de interesse local (art. 30, I, da Constituição Federal) e não cria cargos nem altera a estrutura da administração, em linha com o Tema 917 do STF.${contexto[0] ? ' Em Mauá, o problema é concreto: ' + contexto[0].t.charAt(0).toLowerCase() + contexto[0].t.slice(1) : ''}`;
+  return { tema: titulo, tipo: tipo || 'pl', vicio, normas, juris, contexto, ementa, artigos, just };
 }
 function boardHtml() {
   return `<div class="board">${LANES.map((l, k) => { const it = PROJETOS.filter(p => p.lane === k); return `<div class="col"><div class="col-h"><b>${l}</b><span class="tag">${it.length}</span></div>${it.map(p => `<div class="pl-card ${p.novo ? 'new' : ''}"><b>${esc(p.t)}</b><div><span>${p.n}</span><span>${p.data}</span></div></div>`).join('')}</div>`; }).join('')}</div>`;
 }
+function toolsNav() {
+  return `<nav class="tools" aria-label="Ferramentas">${TOOLS.map((x, i) => `<button data-act="tool" data-v="${x.id}" aria-pressed="${TOOL === x.id}"><i>${i + 1}</i><span><b>${x.t}</b><small>${x.d}</small></span></button>`).join('')}</nav>`;
+}
 function viewProjetos() {
-  return head('projetos', 'Da ideia ao protocolo.', 'Escreva a ideia do jeito que o vereador falou. O sistema varre leis, outras câmaras e tribunais, confere se a Câmara pode legislar sobre o tema e entrega a minuta.') + `
-  <div class="studio">
-    <section class="card rv" style="--i:1" aria-label="Nova pesquisa">
-      <form class="prompt" id="askForm">
-        <label for="tema">Qual lei o gabinete quer propor?</label>
-        <div class="prompt-box"><textarea id="tema" rows="2" placeholder="Proibir fogos com estampido na cidade">${research ? esc(research.tema) : ''}</textarea><button class="btn cta" type="submit">Pesquisar ${ICON.arrow}</button></div>
-        <div class="examples"><span>Exemplos:</span>${EXEMPLOS.map(e => `<button type="button" data-ex="${esc(e)}">${e}</button>`).join('')}</div>
-      </form>
-      <div id="resArea" style="margin-top:28px">${research ? dossie(research) : ''}</div>
-    </section>
-    <aside class="card rv" style="--i:2" aria-labelledby="h-fontes">
-      <div class="sec-h"><h2 id="h-fontes">Onde o sistema procura</h2></div>
-      <div class="side-list">${[['LexML Brasil','Leis federais, estaduais e municipais'],['Câmara e Senado','Projetos parecidos em tramitação'],['SAPL das câmaras','Leis já aprovadas em outras cidades'],['STF e STJ','Decisões sobre competência do município'],['Tribunal de Justiça','Ações contra leis municipais do estado'],['Querido Diário','Diários oficiais das prefeituras']].map(([a,b], i) => `<div><i>${i+1}</i><span><b>${a}</b><span class="muted">${b}</span></span></div>`).join('')}</div>
-      <p class="hint" style="margin-top:14px">No protótipo a pesquisa é simulada. No sistema real, cada item vem com o link da fonte.</p>
-    </aside>
-  </div>
+  const body = { criador: criadorHtml, consultor: consultorHtml, mentor: mentorHtml, tradutor: tradutorHtml, diario: diarioHtml }[TOOL]();
+  return head('projetos', 'Da ideia ao protocolo.', 'Cinco ferramentas para o gabinete propor, revisar e explicar leis em Mauá. Cada resposta vem com a fonte, para o assessor conferir antes de usar.') + toolsNav() + body + `
   <section class="rv" style="--i:3" aria-labelledby="h-board">
     <div class="sec-h"><h2 id="h-board">Projetos do gabinete</h2><span class="muted small">${PROJETOS.length} itens</span></div>
     ${boardHtml()}
   </section>`;
 }
+function criadorHtml() {
+  return `<div class="studio">
+    <section class="card rv" style="--i:1" aria-label="Nova proposição">
+      <form class="prompt" id="askForm">
+        <div class="seg" role="group" aria-label="Tipo de proposição" style="margin-bottom:14px">${Object.entries(PTIPOS).map(([k, v]) => `<button type="button" data-act="ptipo" data-v="${k}" aria-pressed="${PTIPO === k}">${v}</button>`).join('')}</div>
+        <label for="tema">${PTIPO === 'pl' ? 'Qual lei o gabinete quer propor?' : PTIPO === 'indicacao' ? 'O que o gabinete quer pedir ao prefeito?' : 'Que informação o gabinete quer da prefeitura?'}</label>
+        <div class="prompt-box"><textarea id="tema" rows="2" placeholder="Aviso por SMS antes de faltar água">${research ? esc(research.tema) : ''}</textarea><button class="btn cta" type="submit">Pesquisar ${ICON.arrow}</button></div>
+        <div class="examples"><span>Exemplos:</span>${EXEMPLOS.map(e => `<button type="button" data-ex="${esc(e)}">${e}</button>`).join('')}</div>
+      </form>
+      <div id="resArea" style="margin-top:28px">${research ? dossie(research) : ''}</div>
+    </section>
+    <aside class="card rv" style="--i:2" aria-labelledby="h-casos">
+      <div class="sec-h"><h2 id="h-casos">Casos reais da Câmara de Mauá</h2></div>
+      <div class="side-list">${CASOS_MAUA.map((c, i) => `<div><i>${i + 1}</i><span>${c.t} <a class="small" href="${c.u}" target="_blank" rel="noopener">${c.f}</a></span></div>`).join('')}</div>
+      <p class="hint" style="margin-top:14px">Leis municipais em vigor: <a href="https://sistemas.maua.sp.gov.br/legislaconsulta/" target="_blank" rel="noopener">consulta da Prefeitura de Mauá</a>.</p>
+    </aside>
+  </div>`;
+}
+function docTexto(r) {
+  if (r.tipo === 'indicacao') return { num: `Indicação nº ___/${TODAY.getFullYear()}`, ementa: `Indica ao Prefeito Municipal ${r.tema.charAt(0).toLowerCase() + r.tema.slice(1)}.`, corpo: [`<b>INDICO</b> ao Senhor Prefeito Municipal de Mauá, nos termos regimentais, que determine ao órgão competente as providências necessárias para ${r.tema.charAt(0).toLowerCase() + r.tema.slice(1)}.`] };
+  if (r.tipo === 'requerimento') return { num: `Requerimento nº ___/${TODAY.getFullYear()}`, ementa: `Requer informações ao Poder Executivo sobre ${r.tema.charAt(0).toLowerCase() + r.tema.slice(1)}.`, corpo: ['<b>REQUEIRO</b>, na forma regimental, que seja oficiado ao Senhor Prefeito Municipal para que informe a esta Casa:', 'I. quais medidas estão em andamento sobre o tema;', 'II. qual o cronograma e o orçamento previstos;', 'III. quantas solicitações de moradores foram registradas nos últimos 12 meses e por bairro.'] };
+  return { num: `Projeto de Lei nº ___/${TODAY.getFullYear()}`, ementa: r.ementa, corpo: ['<b>A CÂMARA MUNICIPAL DE MAUÁ APROVA:</b>', ...r.artigos.map(esc)] };
+}
 function dossie(r) {
+  const doc = docTexto(r); const pl = r.tipo === 'pl';
   return `<div style="display:flex;flex-direction:column;gap:20px">
-    <div class="verdict ${r.vicio ? 'risk' : 'ok'}"><span class="ico" aria-hidden="true">${r.vicio ? '!' : '✓'}</span>
-      <div><h3>${r.vicio ? 'Esse tema é do prefeito' : 'A Câmara pode legislar sobre isso'}</h3>
-      <p>${r.vicio ? 'Mexe com cargos ou estrutura da prefeitura. O caminho seguro é uma indicação ao prefeito, ou reescrever como programa sem criar cargos.' : 'Interesse local, sem criar cargos nem mudar órgãos. Projeto de vereador é válido.'}</p></div></div>
+    <div class="verdict ${r.vicio && pl ? 'risk' : 'ok'}"><span class="ico" aria-hidden="true">${r.vicio && pl ? '!' : '✓'}</span>
+      <div><h3>${!pl ? PTIPOS[r.tipo] + ' pronta para revisão' : r.vicio ? 'Esse tema é do prefeito' : 'A Câmara pode legislar sobre isso'}</h3>
+      <p>${!pl ? 'Indicações e requerimentos não têm risco de vício de iniciativa. Confira o texto e protocole.' : r.vicio ? 'Mexe com cargos ou estrutura da prefeitura. O caminho seguro é uma indicação ao prefeito.' : 'Interesse local, sem criar cargos nem mudar órgãos. Projeto de vereador é válido.'}</p>
+      ${r.vicio && pl ? '<button class="btn" data-act="ptipo" data-v="indicacao" data-rerun="1" style="margin-top:10px">Transformar em indicação</button>' : ''}</div></div>
     <div class="dtabs" role="tablist">
       <button class="dtab" role="tab" aria-selected="true" data-tab="minuta">Minuta</button>
       <button class="dtab" role="tab" aria-selected="false" data-tab="normas">Legislação (${r.normas.length})</button>
       <button class="dtab" role="tab" aria-selected="false" data-tab="juris">Tribunais (${r.juris.length})</button>
+      ${r.contexto.length ? `<button class="dtab" role="tab" aria-selected="false" data-tab="ctx">Casos em Mauá (${r.contexto.length})</button>` : ''}
     </div>
     <div data-pane="minuta">
       <article class="folha">
-        <div class="pl-num">Projeto de Lei nº ___/${TODAY.getFullYear()}</div>
-        <p class="ementa" contenteditable="true" spellcheck="false">${esc(r.ementa)}</p>
-        <div class="corpo" contenteditable="true" spellcheck="false">
-          <p><b>A CÂMARA MUNICIPAL APROVA:</b></p>
-          ${r.artigos.map(a => `<p>${esc(a)}</p>`).join('')}
+        <div class="pl-num">${doc.num}</div>
+        <p class="ementa" contenteditable="true" spellcheck="false">${esc(doc.ementa)}</p>
+        <div class="corpo" contenteditable="true" spellcheck="false" id="minutaCorpo">
+          ${doc.corpo.map(a => `<p>${a}</p>`).join('')}
           <p class="just">JUSTIFICATIVA</p><p>${esc(r.just)}</p>
-          <p class="muted">Sala das Sessões, ${fmt(TODAY)}. Vereadora Ana Ribeiro.</p>
+          <p class="muted">Sala das Sessões, Mauá, ${fmt(TODAY)}. ${VER.cargo} ${VER.nome}.</p>
         </div>
-        <div class="carimbo ${protocolado ? 'on' : ''}" aria-hidden="true">Câmara Municipal<b>Protocolado</b>PL 42/${TODAY.getFullYear()} · ${dm(TODAY)}</div>
+        <div class="carimbo ${protocolado ? 'on' : ''}" aria-hidden="true">Simulação<b>Protocolado</b>${pl ? 'PL' : r.tipo === 'indicacao' ? 'IND' : 'REQ'} 42/${TODAY.getFullYear()} · ${dm(TODAY)}</div>
       </article>
       <div class="hold-row">
-        <button class="hold-btn ${protocolado ? 'done' : ''}" id="holdBtn" aria-label="Segure para protocolar o projeto"><span class="prog"></span><span>${protocolado ? 'Protocolado como PL 42/' + TODAY.getFullYear() : 'Segure para protocolar'}</span></button>
-        <span class="hint">Clique no texto da folha para ajustar antes de protocolar.</span>
+        <button class="hold-btn ${protocolado ? 'done' : ''}" id="holdBtn" aria-label="Segure para protocolar"><span class="prog"></span><span>${protocolado ? 'Protocolado' : 'Segure para protocolar'}</span></button>
+        <button class="btn" data-act="tool" data-v="mentor">Revisar com o mentor</button>
       </div>
     </div>
-    <div data-pane="normas" hidden>${r.normas.map(n => `<div class="cite"><span class="src">${n.src}</span><div><b>${n.t}</b><p>${n.d}</p></div></div>`).join('')}</div>
+    <div data-pane="normas" hidden>${r.normas.map(n => `<div class="cite"><span class="src">${n.src}</span><div><b>${n.t}</b><p>${n.d}${n.u ? ` <a href="${n.u}" target="_blank" rel="noopener">Abrir</a>` : ''}</p></div></div>`).join('')}</div>
     <div data-pane="juris" hidden>${r.juris.map(n => `<div class="cite"><span class="src">${n.src}</span><div><b>${n.t}</b><p>${n.d}</p><div style="margin-top:6px">${stTag(n.pro ? 'go' : 'stop', n.pro ? 'A favor do projeto' : 'Contra o projeto')}</div></div></div>`).join('')}</div>
+    ${r.contexto.length ? `<div data-pane="ctx" hidden>${r.contexto.map(n => `<div class="cite"><span class="src">${n.d}</span><div><p>${n.t} <a href="${n.u}" target="_blank" rel="noopener">${n.f}</a></p></div></div>`).join('')}</div>` : ''}
   </div>`;
 }
 function runResearch(tema) {
   if (!tema.trim()) { $('#tema').focus(); return; }
   protocolado = false;
-  const etapas = ['Leis no LexML', 'Outras câmaras', 'STF, STJ e TJ', 'Competência', 'Minuta'];
+  const etapas = ['Leis no LexML', 'Leis de Mauá', 'STF e TJ-SP', 'Competência', 'Minuta'];
   const area = $('#resArea');
   area.innerHTML = `<div class="scan" aria-hidden="true"><div class="bar-fill"></div>${etapas.map(e => `<span>${e}</span>`).join('')}</div><p class="hint" style="margin-top:14px" id="scanMsg" aria-live="polite">Varrendo as fontes...</p>`;
   const spans = [...area.querySelectorAll('.scan span')]; const fill = $('.bar-fill', area);
-  let i = 0; const step = reduced() ? 0 : 520;
+  let i = 0; const step = reduced() ? 0 : 480;
   const tick = () => {
+    if (!$('#scanMsg')) return;
     if (i < spans.length) { spans[i].classList.add('on'); fill.style.transform = `scaleX(${i / (spans.length - 1)})`; $('#scanMsg').textContent = etapas[i] + '...'; i++; setTimeout(tick, step); }
-    else { research = analisar(tema); store.set('research', research); area.innerHTML = dossie(research); bindHold(); }
+    else { research = analisar(tema, PTIPO); store.set('research', research); area.innerHTML = dossie(research); bindHold(); }
   };
   tick();
 }
@@ -850,16 +955,157 @@ function bindHold() {
   const stop = () => { holding = false; };
   function finish() {
     holding = false; cancelAnimationFrame(raf); protocolado = true;
-    b.classList.add('done'); b.style.setProperty('--p', 1); b.querySelector('span:last-child').textContent = 'Protocolado como PL 42/' + TODAY.getFullYear();
+    const sig = research.tipo === 'pl' ? 'PL' : research.tipo === 'indicacao' ? 'IND' : 'REQ';
+    b.classList.add('done'); b.style.setProperty('--p', 1); b.querySelector('span:last-child').textContent = `Protocolado como ${sig} 42/${TODAY.getFullYear()}`;
     $('.carimbo').classList.add('on');
-    PROJETOS = PROJETOS.filter(x => !x.novo); PROJETOS.unshift({ n: 'PL 42/' + TODAY.getFullYear(), t: research.tema, lane: 1, data: dm(TODAY), novo: true }); store.set('projetos', PROJETOS);
-    setTimeout(() => { const board = $('.board'); if (board) board.outerHTML = boardHtml(); }, 600);
-    toast('Projeto protocolado e enviado à comissão');
+    if (research.tipo === 'pl') { PROJETOS = PROJETOS.filter(x => !x.novo); PROJETOS.unshift({ n: 'PL 42/' + TODAY.getFullYear(), t: research.tema, lane: 1, data: dm(TODAY), novo: true }); store.set('projetos', PROJETOS); setTimeout(() => { const board = $('.board'); if (board) board.outerHTML = boardHtml(); }, 600); }
+    diarioAdd(PTIPOS[research.tipo], `${sig} 42/${TODAY.getFullYear()} protocolado: ${research.tema}.`, '');
+    toast(research.tipo === 'pl' ? 'Projeto protocolado e enviado à comissão' : PTIPOS[research.tipo] + ' protocolada');
   }
   b.addEventListener('pointerdown', start);
   ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => b.addEventListener(ev, stop));
   b.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) start(e); });
   b.addEventListener('keyup', e => { if (e.key === ' ' || e.key === 'Enter') stop(); });
+}
+
+/* Consultor jurídico: base de respostas com fonte (no sistema real, a IA consulta a base e cita) */
+const KB = [
+  { q: 'Vereador pode propor lei que gera despesa para a prefeitura?', k: /despesa|gasto|custo|orcament|tema 917/, a: 'Pode, desde que a lei não trate da estrutura da prefeitura, das atribuições de seus órgãos nem do regime dos servidores. Foi o que o STF fixou no Tema 917 de repercussão geral.', f: 'STF, ARE 878.911, Tema 917 (2016)' },
+  { q: 'A Sabesp precisa avisar antes de cortar a água?', k: /sabesp|agua|abastec|interrup/, a: 'Sim, nas interrupções programadas. A Lei do Saneamento manda comunicar antes o regulador e os usuários. Em emergência o aviso não é prévio, mas o usuário continua tendo direito à informação.', f: 'Lei 11.445/2007, art. 40, §1º' },
+  { q: 'O que a prefeitura é obrigada a fazer nas áreas de risco?', k: /risco|desliz|defesa civil|encosta|abrigo/, a: 'Cabe ao município mapear as áreas de risco, vistoriar moradias, organizar abrigos, promover a retirada de moradores quando necessário e manter a população informada. Em Mauá, o PMRR mapeou 123 setores de risco.', f: 'Lei 12.608/2012, art. 8º · PMRR de Mauá' },
+  { q: 'Em quanto tempo a ouvidoria tem que responder o morador?', k: /ouvidoria|prazo|responder|resposta|reclama/, a: 'A ouvidoria deve dar a decisão final em até 30 dias, prorrogáveis uma vez por mais 30, com justificativa.', f: 'Lei 13.460/2017, art. 16' },
+  { q: 'O vereador pode postar sobre a eleição de 2028 agora?', k: /post|eleic|campanha|pre-campanha|voto|rede social/, a: 'Pode falar da pré-candidatura e das próprias ideias, sem pedido explícito de voto. A partir de 16 de agosto do ano eleitoral começa a campanha oficial. Nos três meses antes da eleição, a publicidade institucional fica proibida.', f: 'Lei 9.504/1997, arts. 36, 36-A e 73, VI, b' },
+  { q: 'Vereador pode criar cargo ou mudar uma secretaria por lei?', k: /cargo|secretaria|servidor|estrutura|orgao/, a: 'Não. Criar cargos ou mudar a estrutura da administração é iniciativa exclusiva do prefeito. Um projeto de vereador nesse sentido tende a ser vetado ou derrubado na Justiça. O caminho é a indicação.', f: 'Constituição Federal, art. 61, §1º, II, aplicado aos municípios' }
+];
+let consultaAtual = null;
+function consultorHtml() {
+  const r = consultaAtual;
+  return `<section class="card rv" style="--i:1" aria-labelledby="h-cons">
+    <div class="sec-h"><div><span class="kicker">Consultor jurídico</span><h2 id="h-cons">Pergunte como perguntaria a um advogado</h2></div></div>
+    <form id="consForm" class="prompt"><div class="prompt-box"><textarea id="consQ" rows="2" placeholder="A Sabesp precisa avisar antes de cortar a água?"></textarea><button class="btn cta" type="submit">Perguntar ${ICON.arrow}</button></div>
+    <div class="examples"><span>Perguntas comuns:</span>${KB.map((k, i) => `<button type="button" data-act="kb" data-v="${i}">${k.q}</button>`).join('')}</div></form>
+    <div id="consOut" style="margin-top:22px">${r ? consultaHtml(r) : ''}</div>
+  </section>`;
+}
+function consultaHtml(r) {
+  if (!r.k) return `<div class="empty">Ainda não tenho essa resposta na base do protótipo. No sistema real, a pergunta vai para a IA, que responde citando a lei. Tente uma das perguntas comuns.</div>`;
+  return `<div class="answer"><p class="q">${esc(r.q)}</p><p>${r.a}</p><div class="cite" style="border:0;padding-bottom:0"><span class="src">Fonte</span><div><b>${r.f}</b></div></div></div>`;
+}
+function consultar(q) {
+  const f = fold(q); const hit = KB.find(k => k.k.test(f));
+  consultaAtual = hit || { q, k: null };
+  $('#consOut').innerHTML = consultaHtml(consultaAtual);
+}
+
+/* Mentor legislador: revisão técnica da minuta (LC 95/1998 e jurisprudência) */
+function mentorChecks(txt) {
+  const f = fold(txt); const out = [];
+  const add = (lvl, t, d, f2) => out.push({ lvl, t, d, f: f2 });
+  if (/cria(?:r|do|dos)? (?:o |os )?cargo|secretaria|estrutura administrativa|gratificac/.test(f)) add('stop', 'Iniciativa', 'O texto cria cargo ou mexe na estrutura da prefeitura. Isso é do prefeito. Troque por indicação ou reescreva sem criar órgãos.', 'CF, art. 61, §1º, II');
+  else add('go', 'Iniciativa', 'Não encontrei criação de cargos nem mudança na estrutura da prefeitura.', 'STF, Tema 917');
+  if (/dispoe sobre|institui|cria o programa|altera a lei/.test(f)) add('go', 'Ementa', 'A ementa diz o objeto da lei de forma direta.', 'LC 95/1998, art. 5º');
+  else add('hold', 'Ementa', 'Comece a ementa dizendo o objeto: "Dispõe sobre..." ou "Institui...".', 'LC 95/1998, art. 5º');
+  if (/revogam-se as disposicoes em contrario/.test(f)) add('stop', 'Cláusula de revogação', 'A frase genérica "revogam-se as disposições em contrário" não é aceita. Liste as leis revogadas ou tire a cláusula.', 'LC 95/1998, art. 9º');
+  else add('go', 'Cláusula de revogação', 'Não há revogação genérica.', 'LC 95/1998, art. 9º');
+  if (/entra em vigor/.test(f)) add('go', 'Vigência', 'O texto diz quando a lei passa a valer.', 'LC 95/1998, art. 8º');
+  else add('hold', 'Vigência', 'Falta o artigo de vigência. Ex.: "Esta Lei entra em vigor na data de sua publicação."', 'LC 95/1998, art. 8º');
+  if (/(regulamentara|regulamentar).{0,40}prazo|prazo de \d+ dias.{0,40}regulament/.test(f)) add('hold', 'Prazo ao prefeito', 'Impor prazo para o prefeito regulamentar costuma ser visto como interferência entre poderes. Prefira "no que couber".', 'Jurisprudência do STF e do TJ-SP');
+  if (/multa/.test(f) && !/valor|ufm|r\$/.test(f)) add('hold', 'Multa sem valor', 'O texto prevê multa sem dizer o valor ou o critério. Defina em reais ou em unidade fiscal do município.', 'Princípio da legalidade');
+  if (/concessionaria|sabesp|mauá luz|maua luz/.test(f)) add('hold', 'Concessionária', 'Obrigações a concessionárias podem esbarrar no contrato de concessão e na regulação estadual. Peça parecer da procuradoria da Câmara.', 'Análise de risco');
+  return out;
+}
+function mentorHtml() {
+  const base = research ? [docTexto(research).ementa, ...docTexto(research).corpo.map(x => x.replace(/<[^>]+>/g, ''))].join('\n') : 'Dispõe sobre a criação do cargo de assessor especial na Secretaria de Saúde.\nArt. 1º Fica criado o cargo de assessor especial.\nArt. 2º Revogam-se as disposições em contrário.';
+  return `<div class="studio">
+    <section class="card rv" style="--i:1" aria-labelledby="h-mentor">
+      <div class="sec-h"><div><span class="kicker">Mentor legislador</span><h2 id="h-mentor">Revisão da minuta antes do protocolo</h2></div></div>
+      <form id="mentorForm"><textarea class="input" id="mentorTxt" rows="8">${esc(base)}</textarea>
+      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button class="btn cta" type="submit">Revisar</button><span class="hint">${research ? 'Texto da sua última minuta.' : 'Texto de exemplo, com erros de propósito.'}</span></div></form>
+      <div id="mentorOut" style="margin-top:18px">${mentorOut(base)}</div>
+    </section>
+    <aside class="card rv" style="--i:2"><div class="sec-h"><h2>O que o mentor confere</h2></div>
+      <div class="side-list">${[['Iniciativa', 'Se o tema pode ser proposto por vereador'], ['Técnica legislativa', 'Ementa, vigência e revogação pela LC 95/1998'], ['Riscos comuns', 'Prazos ao prefeito, multas sem valor, concessões'], ['Casos de Mauá', 'Vetos e sanções recentes da Câmara']].map(([a, b], i) => `<div><i>${i + 1}</i><span><b>${a}</b><span class="muted">${b}</span></span></div>`).join('')}</div></aside>
+  </div>`;
+}
+function mentorOut(txt) {
+  const l = mentorChecks(txt); const bad = l.filter(x => x.lvl === 'stop').length, warn = l.filter(x => x.lvl === 'hold').length;
+  return `<p class="mentor-sum">${bad ? `<b>${bad} problema${bad > 1 ? 's' : ''} grave${bad > 1 ? 's' : ''}</b>` : '<b>Nenhum problema grave</b>'}${warn ? ` e ${warn} ponto${warn > 1 ? 's' : ''} de atenção` : ''}.</p>
+    <div class="checks">${l.map(x => `<div class="check"><span class="st ${x.lvl}">${{ go: 'Ok', hold: 'Atenção', stop: 'Corrigir' }[x.lvl]}</span><div><b>${x.t}</b><p>${x.d}</p><small>${x.f}</small></div></div>`).join('')}</div>`;
+}
+
+/* Tradutor jurídico: troca termos técnicos por linguagem do dia a dia */
+const GLOSS = [
+  ['no âmbito do município de mauá', 'em Mauá'], ['no âmbito do município', 'na cidade'], ['e dá outras providências', 'e trata de outros pontos'],
+  ['as interrupções programadas', 'os cortes marcados com antecedência'], ['serão previamente comunicadas', 'serão avisados antes'], ['regulamentará esta lei', 'vai detalhar as regras desta lei'], ['o poder executivo', 'a prefeitura'], ['dispõe sobre', 'trata de'], ['fica instituído', 'fica criado'], ['fica instituída', 'fica criada'], ['poder executivo', 'prefeitura'],
+  ['regulamentará', 'vai detalhar as regras de'], ['no que couber', 'quando for preciso'], ['entra em vigor na data de sua publicação', 'vale a partir do dia em que for publicada'],
+  ['dotações orçamentárias próprias', 'verba já prevista no orçamento'], ['dotação orçamentária', 'verba prevista no orçamento'], ['vício de iniciativa', 'quem propôs não tinha poder para isso'],
+  ['competência privativa', 'poder exclusivo'], ['interesse local', 'assunto da cidade'], ['munícipes', 'moradores'], ['munícipe', 'morador'], ['logradouros públicos', 'ruas e praças'], ['logradouro', 'rua ou praça'],
+  ['erário', 'dinheiro público'], ['outrossim', 'além disso'], ['destarte', 'assim'], ['consoante', 'conforme'], ['precípuo', 'principal'], ['concessionária', 'empresa que presta o serviço'],
+  ['interrupções programadas', 'cortes marcados com antecedência'], ['previamente comunicadas', 'avisadas antes'], ['sanção', 'aprovação do prefeito'], ['veto', 'recusa do prefeito']
+];
+const TRAD_EX = 'Art. 40, §1º As interrupções programadas serão previamente comunicadas ao regulador e aos usuários. O Poder Executivo regulamentará esta Lei no que couber, e as despesas correrão por conta de dotações orçamentárias próprias.';
+function traduzir(txt) {
+  let out = txt; const achados = [];
+  GLOSS.forEach(([a, b]) => { const re = new RegExp(a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'); if (re.test(out)) { achados.push([a, b]); out = out.replace(re, m => `<mark>${m[0] === m[0].toUpperCase() ? b.charAt(0).toUpperCase() + b.slice(1) : b}</mark>`); } });
+  out = out.replace(/Art\. (\d+)[ºo°]?/g, 'Artigo $1').replace(/§\s?(\d+)[ºo°]?/g, 'parágrafo $1');
+  return { html: out, achados };
+}
+function tradutorHtml() {
+  const r = traduzir(TRAD_EX);
+  return `<section class="card rv" style="--i:1" aria-labelledby="h-trad">
+    <div class="sec-h"><div><span class="kicker">Tradutor jurídico</span><h2 id="h-trad">Do juridiquês para a língua do morador</h2></div></div>
+    <form id="tradForm"><div class="trad">
+      <div><label class="hint" for="tradIn">Texto legal</label><textarea class="input" id="tradIn" rows="7">${esc(TRAD_EX)}</textarea></div>
+      <div><span class="hint">Versão simples</span><div class="trad-out" id="tradOut" aria-live="polite">${r.html}</div></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button class="btn cta" type="submit">Traduzir</button><button class="btn" type="button" data-act="tradCopy">Copiar para post</button></div></form>
+    <div id="tradGloss" style="margin-top:16px">${glossHtml(r.achados)}</div>
+  </section>`;
+}
+function glossHtml(l) { return l.length ? `<span class="kicker">Termos trocados</span><div class="gloss">${l.map(([a, b]) => `<span><s>${a}</s> ${b}</span>`).join('')}</div>` : '<div class="empty">Nenhum termo técnico encontrado.</div>'; }
+
+/* Diário do mandato: registro pesquisável de tudo o que o gabinete fez */
+const DIARIO_SEED = [
+  [-1, 'Ofício', 'Ofício à Sabesp, com cópia à ARSESP: falta de água recorrente no Jardim Oratório (19 protocolos).', 'Jardim Oratório'],
+  [-2, 'Visita', 'Visita às obras de urbanização do Chafik/Macuco (PAC Periferia Viva) com lideranças locais.', 'Jardim Zaíra'],
+  [-4, 'Requerimento', 'Requerimento à prefeitura sobre o cronograma do PMRR para os setores de risco do Jardim Zaíra.', 'Jardim Zaíra'],
+  [-6, 'Indicação', 'Indicação de limpeza da drenagem do córrego Corumbé antes do período de chuvas.', 'Jardim Itapeva'],
+  [-9, 'Reunião', 'Reunião com a Defesa Civil sobre a Operação Chuvas de Verão e o uso das sirenes.', 'Centro'],
+  [-12, 'Ofício', 'Ofício à Mauá Luz: 14 pontos apagados na região da Rua das Laranjeiras.', 'Jardim Zaíra'],
+  [-15, 'Atendimento', 'Atendimento a 23 moradores na UBS Macuco sobre tempo de espera para consultas.', 'Jardim Zaíra'],
+  [-20, 'Sessão', 'Voto favorável ao PL 29/2026 (Semana do empreendedor jovem) em primeira discussão.', 'Centro']
+];
+let DIARIO = store.get('diario', null) || DIARIO_SEED.map((d, i) => ({ id: 'd' + i, date: ymd(addDays(TODAY, d[0])), tipo: d[1], t: d[2], b: d[3] }));
+let diarioQ = '';
+function diarioAdd(tipo, t, b) { DIARIO.unshift({ id: 'd' + Date.now(), date: ymd(TODAY), tipo, t, b }); store.set('diario', DIARIO); }
+function diarioLista() {
+  const q = fold(diarioQ).split(/\s+/).filter(w => w.length > 2 && !['ultimo', 'ultima', 'sobre', 'para', 'com', 'que', 'dos', 'das'].includes(w));
+  const l = DIARIO.filter(d => !q.length || q.every(w => fold(d.tipo + ' ' + d.t + ' ' + d.b).includes(w)));
+  return l.length ? `<div class="diario">${l.map(d => `<div class="d-row"><time>${dm(fromYmd(d.date))}</time><span class="tag">${d.tipo}</span><p>${esc(d.t)}${d.b ? `<small>${esc(d.b)}</small>` : ''}</p></div>`).join('')}</div>` : '<div class="empty">Nada encontrado. Tente outra palavra, como o nome do bairro ou do órgão.</div>';
+}
+function diarioHtml() {
+  return `<section class="card rv" style="--i:1" aria-labelledby="h-diario">
+    <div class="sec-h"><div><span class="kicker">Diário do mandato</span><h2 id="h-diario">Tudo o que o gabinete fez, em um lugar</h2></div><span class="tag">${DIARIO.length} registros</span></div>
+    <input class="input" id="diarioQ" type="search" placeholder="Ex.: último ofício à Sabesp" value="${esc(diarioQ)}" aria-label="Buscar no diário">
+    <div class="examples" style="margin-top:10px"><span>Buscas:</span>${['ofício Sabesp', 'Jardim Zaíra', 'Defesa Civil', 'indicação'].map(e => `<button type="button" data-act="dq" data-v="${e}">${e}</button>`).join('')}</div>
+    <div id="diarioOut" style="margin-top:16px">${diarioLista()}</div>
+    <p class="hint" style="margin-top:12px">Ofícios copiados, respostas em lote, triagens e protocolos entram aqui sozinhos.</p>
+  </section>`;
+}
+function projClick(b) {
+  const a = b.dataset.act;
+  if (a === 'tool') { TOOL = b.dataset.v; render(); return true; }
+  if (a === 'ptipo') { PTIPO = b.dataset.v; if (b.dataset.rerun && research) { const t = research.tema; render(); setTimeout(() => runResearch(t), 30); } else render(); return true; }
+  if (a === 'kb') { $('#consQ').value = KB[+b.dataset.v].q; consultar(KB[+b.dataset.v].q); return true; }
+  if (a === 'dq') { diarioQ = b.dataset.v; $('#diarioQ').value = diarioQ; $('#diarioOut').innerHTML = diarioLista(); return true; }
+  if (a === 'tradCopy') { copyText($('#tradOut').innerText, 'Texto simples copiado'); return true; }
+  return false;
+}
+function projSubmit(id) {
+  if (id === 'consForm') { consultar($('#consQ').value); return true; }
+  if (id === 'mentorForm') { $('#mentorOut').innerHTML = mentorOut($('#mentorTxt').value); return true; }
+  if (id === 'tradForm') { const r = traduzir($('#tradIn').value); $('#tradOut').innerHTML = r.html; $('#tradGloss').innerHTML = glossHtml(r.achados); return true; }
+  return false;
 }
 
 /* ---------- Agenda ---------- */
@@ -881,7 +1127,7 @@ function viewAgenda() {
     <section class="card rv" style="--i:2" aria-labelledby="h-bairros">
       <div class="sec-h"><h2 id="h-bairros">Presença nos bairros</h2><span class="muted small">visitas nos últimos 90 dias</span></div>
       <div class="hbars">${BAIRROS.map(([b, n], i) => `<div class="hbar ${n < 3 ? 'low' : ''}"><span>${b}</span><div class="track"><i style="--w:${max ? Math.max(n/max*100, n ? 4 : 0) : 0}%;--i:${i}"></i></div><span class="num">${n}</span></div>`).join('')}</div>
-      <div class="alert">${stTag('hold', '')}<span>Parque Azul e Morro do Sol estão sem visitas há semanas.</span></div>
+      <div class="alert">${stTag('hold', '')}<span>Capuava e Parque São Vicente estão sem visitas há semanas.</span></div>
     </section>
     <section class="card rv" style="--i:3" aria-labelledby="h-dem2">
       <div class="sec-h"><h2 id="h-dem2">Demandas abertas</h2><span class="tag">${DEMANDAS.length}</span></div>
@@ -913,7 +1159,7 @@ function newEventDrawer() {
 
 /* ---------- Comunicação ---------- */
 let monthOffset = 0;
-let draft = { texto: 'Hoje acompanhei a obra da nova UBS no Vila Nova. Seguimos cobrando a prefeitura pelo prazo de entrega.', date: ymd(addDays(TODAY, 3)), canal: 'Instagram' };
+let draft = { texto: 'Hoje visitei a UBS Macuco, no Jardim Zaíra. Seguimos cobrando a prefeitura pelo tempo de espera das consultas.', date: ymd(addDays(TODAY, 3)), canal: 'Instagram' };
 function checkPost(texto, dateStr) {
   const ph = phaseOf(fromYmd(dateStr)); const t = texto.toLowerCase(); const issues = []; let lvl = 'go';
   const up = l => { const o = { go: 0, hold: 1, stop: 2 }; if (o[l] > o[lvl]) lvl = l; };
@@ -965,57 +1211,86 @@ function viewComunicacao() {
   </div>`;
 }
 
-/* ---------- Demandas no mapa: inteligência territorial ---------- */
+/* ---------- Demandas no mapa: inteligência territorial (Mauá, SP) ---------- */
+const VER = { nome: 'Ana Ribeiro', cargo: 'Vereadora' };
 const CATS = {
   luz: { label: 'Iluminação pública', c: '#E8590C' },
+  agua: { label: 'Falta de água', c: '#0B72B9' },
+  risco: { label: 'Risco de deslizamento', c: '#8A4B08' },
+  alaga: { label: 'Alagamento', c: '#0E7C86' },
   via: { label: 'Buraco na via', c: '#7B3FA0' },
-  poda: { label: 'Poda de árvore', c: '#168821' },
-  lixo: { label: 'Lixo e entulho', c: '#A87B00' },
-  saude: { label: 'Saúde', c: '#1351B4' },
-  transito: { label: 'Trânsito', c: '#0E7C86' }
+  saude: { label: 'Saúde', c: '#168821' }
 };
 const CAT_TXT = {
-  luz: { alerta: 'Ponto crítico de apagão', problema: 'falta de iluminação pública', pedido: 'a implantação de uma nova rede de iluminação', orgao: 'Secretaria Municipal de Serviços Urbanos', diag: 'Falha sistêmica da rede', nec: 'Nova rede de iluminação' },
-  via: { alerta: 'Concentração de buracos', problema: 'buracos na via', pedido: 'o recapeamento das ruas afetadas', orgao: 'Secretaria Municipal de Obras', diag: 'Desgaste do pavimento na região', nec: 'Recapeamento' },
-  poda: { alerta: 'Risco de queda de árvores', problema: 'árvores sem poda', pedido: 'um mutirão de poda com avaliação técnica', orgao: 'Secretaria Municipal de Meio Ambiente', diag: 'Falta de manutenção preventiva', nec: 'Plano de poda' },
-  lixo: { alerta: 'Foco de descarte irregular', problema: 'lixo e entulho acumulados', pedido: 'reforço da coleta e fiscalização', orgao: 'Secretaria Municipal de Serviços Urbanos', diag: 'Coleta abaixo da demanda', nec: 'Reforço da coleta' },
-  saude: { alerta: 'Gargalo no atendimento de saúde', problema: 'falta de atendimento na UBS', pedido: 'reforço da equipe médica', orgao: 'Secretaria Municipal de Saúde', diag: 'Equipe abaixo da demanda', nec: 'Mais profissionais' },
-  transito: { alerta: 'Ponto de risco no trânsito', problema: 'risco de acidentes', pedido: 'sinalização e redutores de velocidade', orgao: 'Secretaria Municipal de Mobilidade', diag: 'Sinalização insuficiente', nec: 'Sinalização nova' }
+  luz: { alerta: 'Ponto crítico de apagão', problema: 'falta de iluminação pública', pedido: 'a vistoria e a reforma da rede de iluminação da área', orgao: 'Concessionária Mauá Luz, com cópia à Secretaria de Serviços Urbanos', diag: 'Falha sistêmica da rede', nec: 'Reforma da rede de iluminação', ref: 'A iluminação pública de Mauá é mantida pela concessionária Mauá Luz, a quem cabe cumprir os prazos de atendimento do contrato.' },
+  agua: { alerta: 'Desabastecimento recorrente', problema: 'falta de água', pedido: 'um plano para garantir pressão nas partes altas do bairro e aviso prévio das interrupções', orgao: 'Sabesp, com cópia à ARSESP', diag: 'Pressão insuficiente nas áreas altas', nec: 'Reforço do abastecimento', ref: 'A Lei federal 11.445/2007 (art. 40, §1º) exige que interrupções programadas sejam comunicadas antes aos usuários.' },
+  risco: { alerta: 'Área de risco com chamados em alta', problema: 'risco de deslizamento de terra', pedido: 'vistoria geotécnica imediata e inclusão das moradias no plano de obras do PMRR', orgao: 'Defesa Civil de Mauá', diag: 'Encosta instável com ocupação', nec: 'Obra de contenção', ref: 'A Lei federal 12.608/2012 (art. 8º) atribui ao município mapear áreas de risco, vistoriar moradias e informar a população.' },
+  alaga: { alerta: 'Ponto de alagamento', problema: 'alagamentos', pedido: 'limpeza da drenagem e informação sobre o cronograma do piscinão do Jardim Zaíra', orgao: 'Secretaria de Obras, com cópia à Defesa Civil de Mauá', diag: 'Drenagem abaixo da vazão do Tamanduateí', nec: 'Obra de drenagem', ref: 'A prefeitura busca recursos do PAC para um piscinão na entrada do Jardim Zaíra, contra as cheias do Tamanduateí e do córrego Corumbé.' },
+  via: { alerta: 'Concentração de buracos', problema: 'buracos na via', pedido: 'o recapeamento das ruas afetadas', orgao: 'Secretaria de Obras', diag: 'Desgaste do pavimento na região', nec: 'Recapeamento', ref: '' },
+  saude: { alerta: 'Gargalo no atendimento de saúde', problema: 'demora no atendimento da UBS', pedido: 'reforço da equipe da unidade', orgao: 'Secretaria de Saúde', diag: 'Equipe abaixo da demanda', nec: 'Mais profissionais', ref: '' }
 };
+/* Casos reais publicados na imprensa, usados como contexto de cada tipo de demanda */
+const CONTEXTO = {
+  luz: [{ d: '20/10/2026', t: 'Desde 2024 toda a iluminação de Mauá é LED e mantida pela Mauá Luz. Pedidos pelo 0800 680 1000, pelo site e pelo app.', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4353804/maua-tem-3-canais-para-pedir-reparos-na-iluminacao-publica' }],
+  agua: [{ d: '17/12/2025', t: 'Queda de energia na estação elevatória deixou 27 bairros sem água, entre eles Jardim Oratório, Zaíra, Itapeva e Guapituba.', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4275022/falta-de-energia-compromete-abastecimento-de-agua-em-27-bairros-de-maua' },
+         { d: '21/03/2025', t: 'Jardim Oratório ficou cerca de oito dias sem água. Nas casas mais altas, a pressão não enchia as caixas.', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4211577/moradores-do-jardim-oratorio-enfrentam-oito-dias-sem-agua-em-maua' }],
+  risco: [{ d: '21/10/2025', t: 'O Plano Municipal de Redução de Riscos mapeou 123 setores de risco. 115 precisam de obras, estimadas em R$ 205,9 milhões.', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4264475/maua-tem-123-areas-de-risco-mapeadas' },
+          { d: '21/02/2026', t: 'Sirenes no Chafik/Macuco, no Jardim Zaíra, podem alertar cerca de 5 mil moradores. A UFABC identificou 3.476 casas em risco na cidade.', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4286473/sirenes-de-emergencia-podem-salvar-5-000-pessoas-em-maua' }],
+  alaga: [{ d: '13/03/2026', t: 'A prefeitura pede cerca de R$ 200 milhões do PAC para um piscinão na entrada do Jardim Zaíra. Alagam Zaíra, Itapeva, Miranda D\'Aviz e Boa Esperança.', f: 'Diário do Grande ABC', u: 'https://www.dgabc.com.br/Noticia/4289925/prefeito-de-maua-busca-apoio-da-uniao-por-piscinao-no-zaira' }]
+};
+/* Mapa esquemático de Mauá: posições aproximadas dos bairros, não é cartografia oficial */
 const MAP_B = [
-  { n: 'Vila Nova', p: [[70,50],[300,40],[315,185],[95,205]] },
-  { n: 'Morro do Sol', p: [[310,40],[505,45],[495,175],[318,185]] },
-  { n: 'Jardim Zaíra', p: [[512,45],[750,40],[765,235],[560,250],[500,178]] },
-  { n: 'Jardim Esperança', p: [[95,212],[320,192],[338,322],[170,430],[60,335]] },
-  { n: 'Centro', p: [[322,190],[495,182],[555,255],[505,312],[340,320]] },
-  { n: 'São José', p: [[340,328],[505,318],[540,455],[330,465],[185,435]] },
-  { n: 'Parque Azul', p: [[512,316],[562,258],[768,244],[780,455],[548,458]] }
+  { n: 'Capuava', p: [[0,0],[235,0],[245,150],[0,140]] },
+  { n: 'Parque São Vicente', p: [[235,0],[425,0],[420,155],[245,150]] },
+  { n: 'Feital', p: [[425,0],[610,0],[600,150],[420,155]] },
+  { n: 'Sertãozinho', p: [[610,0],[800,0],[800,170],[600,150]] },
+  { n: 'Vila Assis Brasil', p: [[0,140],[245,150],[225,300],[0,295]] },
+  { n: 'Centro', p: [[245,150],[420,155],[430,295],[225,300]] },
+  { n: 'Vila Bocaina', p: [[420,155],[600,150],[610,300],[430,295]] },
+  { n: 'Jardim Guapituba', p: [[600,150],[800,170],[800,335],[610,300]] },
+  { n: 'Parque das Américas', p: [[0,295],[225,300],[235,500],[0,500]] },
+  { n: 'Jardim Zaíra', p: [[225,300],[430,295],[470,500],[235,500]] },
+  { n: 'Jardim Itapeva', p: [[430,295],[610,300],[640,500],[470,500]] },
+  { n: 'Jardim Oratório', p: [[610,300],[800,335],[800,500],[640,500]] }
 ];
-const STREETS = ['M0 194 C 200 190, 500 172, 800 160', 'M316 0 C 325 160, 340 320, 335 500', 'M508 0 C 500 120, 548 260, 545 500', 'M40 445 C 300 360, 520 300, 800 250', 'M120 0 C 160 120, 120 300, 60 500', 'M500 178 C 600 150, 700 120, 800 110'];
-const RUAS = ['Rua das Acácias', 'Rua dos Ipês', 'Av. Principal', 'Rua Bahia', 'Rua Sergipe', 'Rua Goiás', 'Rua Paraná', 'Rua das Rosas', 'Rua Itapeva', 'Rua Japurá', 'Av. Brasil', 'Rua Tietê', 'Rua Xingu', 'Rua Araguaia', 'Travessa Jacarandá'];
+const BI = n => MAP_B.findIndex(b => b.n === n);
+const ALIAS = { chafik: 'Jardim Zaíra', macuco: 'Jardim Zaíra', zaira: 'Jardim Zaíra', itapark: 'Jardim Guapituba', guapituba: 'Jardim Guapituba', oratorio: 'Jardim Oratório', itapeva: 'Jardim Itapeva', capuava: 'Capuava', feital: 'Feital', sertaozinho: 'Sertãozinho', bocaina: 'Vila Bocaina', 'sao vicente': 'Parque São Vicente', 'parque das americas': 'Parque das Américas', 'assis brasil': 'Vila Assis Brasil', centro: 'Centro' };
+const RIO = 'M560 500 C 540 430, 470 360, 420 305 S 330 225, 280 190 S 140 80, 0 40';
+const TREM = 'M0 92 C 120 100, 220 150, 330 200 S 560 245, 700 250 S 780 262, 800 266';
+const ESTACOES = [{ n: 'Capuava', x: 150, y: 112 }, { n: 'Mauá', x: 330, y: 200 }, { n: 'Guapituba', x: 700, y: 250 }];
+const RUAS = {
+  'Jardim Zaíra': ['Rua das Laranjeiras', 'Av. João Guilherme Bolidoro', 'Av. Presidente Castelo Branco'],
+  'Centro': ['Av. Barão de Mauá', 'Av. Capitão João', 'Av. João Ramalho'],
+  'Jardim Guapituba': ['Av. Itapark'],
+  _: ['Rua São Paulo', 'Rua Bahia', 'Rua Goiás', 'Rua Paraná', 'Rua Minas Gerais', 'Rua Santa Catarina', 'Rua Rio de Janeiro']
+};
+const ASSESSOR = { 'Jardim Zaíra': 'Marcos', 'Parque das Américas': 'Marcos', 'Jardim Itapeva': 'Marcos', 'Jardim Oratório': 'Júlia', 'Jardim Guapituba': 'Júlia', 'Vila Bocaina': 'Júlia', 'Sertãozinho': 'Júlia', _: 'Renata' };
 const mkRng = s => () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
 const gauss = r => Math.sqrt(-2 * Math.log(r() || 1e-9)) * Math.cos(2 * Math.PI * r());
 function inPoly(x, y, p) { let c = false; for (let i = 0, j = p.length - 1; i < p.length; j = i++) { const [xi, yi] = p[i], [xj, yj] = p[j]; if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c; } return c; }
 function randIn(p, r) { const xs = p.map(q => q[0]), ys = p.map(q => q[1]); let x, y, k = 0; do { x = Math.min(...xs) + r() * (Math.max(...xs) - Math.min(...xs)); y = Math.min(...ys) + r() * (Math.max(...ys) - Math.min(...ys)); } while (!inPoly(x, y, p) && ++k < 200); return [Math.round(x), Math.round(y)]; }
 function near(cx, cy, sx, sy, p, r) { let x, y, k = 0; do { x = cx + gauss(r) * sx; y = cy + gauss(r) * sy; } while (!inPoly(x, y, p) && ++k < 200); return [Math.round(x), Math.round(y)]; }
-const polyTop = p => { const xs = p.map(q => q[0]); return [Math.round(xs.reduce((a, b) => a + b, 0) / xs.length), Math.min(...p.map(q => q[1])) + 24]; };
+const polyTop = p => { const xs = p.map(q => q[0]); return [Math.round(xs.reduce((a, b) => a + b, 0) / xs.length), Math.min(...p.map(q => q[1])) + 22]; };
 const fold = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const ruaDe = (b, r) => { const l = RUAS[b] || RUAS._; return l[Math.floor(r() * l.length)] + ', ' + (10 + Math.floor(r() * 890)); };
+const bairroAt = (x, y) => (MAP_B.find(b => inPoly(x, y, b.p)) || MAP_B[5]).n;
 
 function seedProtos() {
-  const r = mkRng(11); const out = [];
-  const zai = MAP_B[2].p;
-  [3, 4, 5, 6, 8, 9].forEach((n, w) => { for (let k = 0; k < n; k++) { const [x, y] = near(632, 138, 34, 30, zai, r); out.push({ cat: 'luz', x, y, b: 'Jardim Zaíra', ago: (5 - w) * 7 + Math.floor(r() * 7), st: 'aberto' }); } });
-  for (let k = 0; k < 9; k++) { const [x, y] = near(420, 398, 26, 20, MAP_B[5].p, r); out.push({ cat: 'via', x, y, b: 'São José', ago: Math.floor(r() * 45), st: 'aberto' }); }
-  const outros = ['via', 'poda', 'lixo', 'saude', 'transito'];
-  for (let i = 0; i < 46; i++) {
+  const r = mkRng(7); const out = [];
+  const grupo = (cat, b, cx, cy, sx, sy, weeks) => weeks.forEach((n, w) => { for (let k = 0; k < n; k++) { const [x, y] = near(cx, cy, sx, sy, MAP_B[BI(b)].p, r); out.push({ cat, x, y, b, ago: (5 - w) * 7 + Math.floor(r() * 7), st: 'aberto' }); } });
+  grupo('luz', 'Jardim Zaíra', 345, 370, 30, 26, [3, 4, 5, 6, 8, 9]);
+  grupo('agua', 'Jardim Oratório', 718, 415, 30, 28, [2, 3, 3, 5, 6, 7]);
+  grupo('risco', 'Jardim Zaíra', 300, 452, 18, 14, [1, 1, 2, 2, 3, 4]);
+  grupo('alaga', 'Jardim Itapeva', 470, 360, 16, 18, [0, 1, 1, 2, 2, 3]);
+  const outros = ['via', 'via', 'saude', 'saude', 'luz', 'agua', 'alaga'];
+  for (let i = 0; i < 44; i++) {
     const b = MAP_B[Math.floor(r() * MAP_B.length)]; const [x, y] = randIn(b.p, r);
-    const cat = r() < .1 ? 'luz' : outros[Math.floor(r() * outros.length)];
-    out.push({ cat, x, y, b: b.n, ago: Math.floor(r() * 85), st: r() < .3 ? 'resolvido' : 'aberto' });
+    out.push({ cat: outros[Math.floor(r() * outros.length)], x, y, b: b.n, ago: Math.floor(r() * 85), st: r() < .3 ? 'resolvido' : 'aberto' });
   }
   out.sort((a, b) => b.ago - a.ago);
-  return out.map((p, i) => ({ id: '#' + String(350 + i).padStart(4, '0'), cat: p.cat, x: p.x, y: p.y, b: p.b, st: p.st, date: ymd(addDays(TODAY, -p.ago)), end: RUAS[Math.floor(r() * RUAS.length)] + ', ' + (10 + Math.floor(r() * 890)) }));
+  return out.map((p, i) => ({ id: '#' + String(350 + i).padStart(4, '0'), cat: p.cat, x: p.x, y: p.y, b: p.b, st: p.st, date: ymd(addDays(TODAY, -p.ago)), end: ruaDe(p.b, r) }));
 }
-let PROTOS = seedProtos().concat(store.get('protosNovos', []));
+let PROTOS = seedProtos().concat(store.get('protosMaua', []));
 const waitOf = p => Math.max(0, -daysTo(fromYmd(p.date)));
 const T = { cats: new Set(Object.keys(CATS)), period: 60, mode: 'heat', sel: 0, cutoff: null, openDoc: false, ex: 0 };
 let pendingTema = null;
@@ -1032,32 +1307,35 @@ function clusters() {
       rest.forEach(p => { const nb = rest.filter(q => Math.hypot(p.x - q.x, p.y - q.y) < 70); if (nb.length > bn.length) bn = nb; });
       if (bn.length < 6) break;
       const cx = bn.reduce((a, q) => a + q.x, 0) / bn.length, cy = bn.reduce((a, q) => a + q.y, 0) / bn.length;
-      const mem = rest.filter(q => Math.hypot(cx - q.x, cy - q.y) < 110);
+      const mem = rest.filter(q => Math.hypot(cx - q.x, cy - q.y) < 100);
       rest = rest.filter(q => !mem.includes(q));
       const waits = mem.map(waitOf);
       const tally = {}; mem.forEach(q => tally[q.b] = (tally[q.b] || 0) + 1);
       const weeks = [0, 0, 0, 0, 0, 0]; mem.forEach(q => { const w = 5 - Math.min(5, Math.floor(waitOf(q) / 7)); weeks[w]++; });
       const mx = mem.reduce((a, q) => Math.max(a, Math.hypot(cx - q.x, cy - q.y)), 0);
       const wait = Math.round(waits.reduce((a, b) => a + b, 0) / waits.length);
-      res.push({ cat: c, n: mem.length, cx, cy, r: Math.min(140, mx + 16), b: Object.entries(tally).sort((a, b) => b[1] - a[1])[0][0], wait, maxWait: Math.max(...waits), weeks, mem, score: mem.length * (1 + wait / 30) });
+      res.push({ cat: c, n: mem.length, cx, cy, r: Math.min(120, mx + 14), b: Object.entries(tally).sort((a, b) => b[1] - a[1])[0][0], wait, maxWait: Math.max(...waits), weeks, mem, score: mem.length * (1 + wait / 30) * (c === 'risco' ? 1.6 : 1) });
     }
   });
   return res.sort((a, b) => b.score - a.score);
 }
 const trendOf = c => { const prev = c.weeks[2] + c.weeks[3], last = c.weeks[4] + c.weeks[5]; return prev ? Math.round((last - prev) / prev * 100) : 100; };
-const level = c => c.n >= 20 ? 'crit' : c.n >= 10 ? 'atencao' : 'obs';
+const level = c => c.n >= 20 || (c.cat === 'risco' && c.n >= 8) ? 'crit' : c.n >= 10 ? 'atencao' : 'obs';
+function dias(n) { return n === 0 ? 'hoje' : n === 1 ? '1 dia' : n + ' dias'; }
 
 function mapSvg() {
   const pts = visible(); const cl = clusters(); const open = pts.filter(p => p.st === 'aberto');
-  const hotB = new Set(cl.filter(c => c.n >= 20).map(c => c.b));
-  return `<svg viewBox="0 0 800 500" role="img" aria-label="Mapa da cidade com ${open.length} pedidos abertos${cl[0] ? ' e concentração no bairro ' + cl[0].b : ''}">
+  const hotB = new Set(cl.filter(c => level(c) === 'crit').map(c => c.b));
+  return `<svg viewBox="0 0 800 500" role="img" aria-label="Mapa esquemático de Mauá com ${open.length} pedidos abertos${cl[0] ? ' e concentração no bairro ' + cl[0].b : ''}">
     <defs><radialGradient id="heatG"><stop offset="0" stop-color="#FF4D1A" stop-opacity=".36"/><stop offset=".55" stop-color="#FF4D1A" stop-opacity=".12"/><stop offset="1" stop-color="#FF4D1A" stop-opacity="0"/></radialGradient></defs>
     <rect width="800" height="500" style="fill:var(--map-bg)"/>
     ${MAP_B.map(b => `<path class="bairro-shape ${hotB.has(b.n) ? 'hot' : ''}" d="M${b.p.map(q => q.join(' ')).join(' L')} Z"/>`).join('')}
-    ${STREETS.map(d => `<path class="street" d="${d}"/>`).join('')}
+    <path class="rio" d="${RIO}"/><text class="rio-label" x="60" y="66" transform="rotate(27 60 66)">Rio Tamanduateí</text>
+    <path class="trem" d="${TREM}"/><path class="trem-dash" d="${TREM}"/>
+    ${ESTACOES.map(e => `<g class="estacao"><circle cx="${e.x}" cy="${e.y}" r="6"/><text x="${e.x + 10}" y="${e.y - 9}">Est. ${e.n}</text></g>`).join('')}
     ${MAP_B.map(b => { const [x, y] = polyTop(b.p); return `<text class="bairro-label" x="${x}" y="${y}" text-anchor="middle">${b.n}</text>`; }).join('')}
-    ${T.mode === 'heat' ? open.map(p => `<circle cx="${p.x}" cy="${p.y}" r="48" fill="url(#heatG)"/>`).join('') : ''}
-    ${cl.filter(c => c.n >= 10).map(c => { const i = cl.indexOf(c); return `<circle class="ring" cx="${c.cx.toFixed(0)}" cy="${c.cy.toFixed(0)}" r="${c.r.toFixed(0)}" style="opacity:${i === T.sel ? 1 : .4}"/>${i === T.sel ? `<text class="ring-tag" x="${c.cx.toFixed(0)}" y="${(c.cy + c.r + 16).toFixed(0)}" text-anchor="middle">${c.n} chamados</text>` : ''}`; }).join('')}
+    ${T.mode === 'heat' ? open.map(p => `<circle cx="${p.x}" cy="${p.y}" r="44" fill="url(#heatG)"/>`).join('') : ''}
+    ${cl.filter(c => c.n >= 8).map(c => { const i = cl.indexOf(c); return `<circle class="ring" cx="${c.cx.toFixed(0)}" cy="${c.cy.toFixed(0)}" r="${c.r.toFixed(0)}" style="opacity:${i === T.sel ? 1 : .4}"/>${i === T.sel ? `<text class="ring-tag" x="${c.cx.toFixed(0)}" y="${(c.cy + c.r + 16 > 492 ? c.cy - c.r - 8 : c.cy + c.r + 16).toFixed(0)}" text-anchor="middle">${c.n} chamados</text>` : ''}`; }).join('')}
     ${pts.map(p => `<circle class="pin ${p.novo ? 'new' : ''}" data-pin="${p.id}" cx="${p.x}" cy="${p.y}" r="${p.st === 'aberto' ? 5.5 : 4}" style="fill:${p.st === 'aberto' ? CATS[p.cat].c : 'var(--rule-strong)'};stroke:var(--sheet);stroke-width:1.6"><title>${p.id} · ${CATS[p.cat].label} · ${esc(p.end)}</title></circle>`).join('')}
   </svg>${T.cutoff ? `<span class="map-stamp">Até ${dm(T.cutoff)}</span>` : ''}`;
 }
@@ -1068,7 +1346,11 @@ function chipsHtml() {
 function hotListHtml() {
   const cl = clusters();
   if (!cl.length) return '<div class="empty">Nenhuma concentração com os filtros atuais. Os pedidos estão espalhados.</div>';
-  return cl.slice(0, 5).map((c, i) => `<button class="hot ${level(c)}" data-hot="${i}" aria-pressed="${i === T.sel}"><span class="rank">${i + 1}</span><span><b>${CAT_TXT[c.cat].alerta}</b><small>${c.b} · espera média de ${c.wait} dias</small></span><span class="n">${c.n}<small>chamados</small></span></button>`).join('');
+  return cl.slice(0, 5).map((c, i) => `<button class="hot ${level(c)}" data-hot="${i}" aria-pressed="${i === T.sel}"><span class="rank">${i + 1}</span><span><b>${CAT_TXT[c.cat].alerta}</b><small>${c.b} · espera média de ${dias(c.wait)}</small></span><span class="n">${c.n}<small>chamados</small></span></button>`).join('');
+}
+function ctxHtml(cat) {
+  const l = CONTEXTO[cat]; if (!l) return '';
+  return `<div class="ctx"><span class="kicker">Caso real em Mauá</span>${l.map(x => `<p><b>${x.d}.</b> ${x.t} <a href="${x.u}" target="_blank" rel="noopener">${x.f}</a></p>`).join('')}</div>`;
 }
 function provaHtml() {
   const cl = clusters(); const c = cl[T.sel] || cl[0];
@@ -1079,35 +1361,49 @@ function provaHtml() {
     <div class="prova">
       <div><div class="bars">${c.weeks.map((n, i) => `<div><span>${n}</span><i style="--h:${n / max * 100}%;--i:${i}"></i></div>`).join('')}</div>
       <div class="bars-x">${lbl.map(l => `<span>${l}</span>`).join('')}</div>
-      <p class="hint" style="margin-top:10px">Pedidos de ${CATS[c.cat].label.toLowerCase()} por semana dentro da área marcada no mapa.</p></div>
+      <p class="hint" style="margin-top:10px">Pedidos de ${CATS[c.cat].label.toLowerCase()} por semana dentro da área marcada no mapa.</p>${ctxHtml(c.cat)}</div>
       <div><div class="kpis">
         <div class="kpi"><b class="num">${c.n}</b><span>pedidos com endereço no mapa</span></div>
-        <div class="kpi"><b class="num">${c.wait} dias</b><span>de espera média</span></div>
-        <div class="kpi"><b class="num">${c.maxWait} dias</b><span>esperando o pedido mais antigo</span></div>
+        <div class="kpi"><b class="num">${dias(c.wait)}</b><span>de espera média</span></div>
+        <div class="kpi"><b class="num">${dias(c.maxWait)}</b><span>esperando o pedido mais antigo</span></div>
         <div class="kpi"><b class="num" style="color:${tr > 0 ? 'var(--stop)' : 'var(--go)'}">${tr > 0 ? '+' : ''}${tr}%</b><span>de pedidos nas 2 últimas semanas</span></div>
       </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><button class="btn cta" data-act="oficio">Gerar cobrança à prefeitura</button><button class="btn" data-act="lote">Responder os ${c.n} moradores</button></div></div>
+      <p class="hint" style="margin-top:12px">Destino da cobrança: <b>${CAT_TXT[c.cat].orgao}</b></p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="btn cta" data-act="oficio">Gerar cobrança</button><button class="btn" data-act="lote">Responder os ${c.n} moradores</button></div></div>
     </div>`;
 }
 function alertaHtml(c, onPainel) {
   const tr = trendOf(c);
   return `<section class="alerta rv" style="--i:1" aria-labelledby="h-alerta"><span class="pulse" aria-hidden="true">${ICON.alert}</span>
-    <div><span class="kicker" style="color:var(--stop)">Alerta estratégico</span><h2 id="h-alerta">${CAT_TXT[c.cat].alerta} em formação no bairro ${c.b}</h2>
-    <div class="facts"><span><b>${c.n}</b> pedidos de ${CATS[c.cat].label.toLowerCase()}</span><span>espera média de <b>${c.wait} dias</b></span><span><b>${tr > 0 ? '+' : ''}${tr}%</b> nas 2 últimas semanas</span></div></div>
-    <div class="alerta-actions">${onPainel ? `<a class="btn cta" href="#territorio">Ver no mapa</a><button class="btn" data-act="oficioGo">Gerar cobrança</button>` : `<button class="btn cta" data-act="oficio">Gerar cobrança à prefeitura</button><button class="btn" data-act="lote">Responder moradores</button>`}</div></section>`;
+    <div><span class="kicker" style="color:var(--stop)">Alerta estratégico</span><h2 id="h-alerta">${CAT_TXT[c.cat].alerta} no bairro ${c.b}</h2>
+    <div class="facts"><span><b>${c.n}</b> pedidos de ${CATS[c.cat].label.toLowerCase()}</span><span>espera média de <b>${dias(c.wait)}</b></span><span><b>${tr > 0 ? '+' : ''}${tr}%</b> nas 2 últimas semanas</span></div></div>
+    <div class="alerta-actions">${onPainel ? `<a class="btn cta" href="#territorio">Ver no mapa</a><button class="btn" data-act="oficioGo">Gerar cobrança</button>` : `<button class="btn cta" data-act="oficio">Gerar cobrança</button><button class="btn" data-act="lote">Responder moradores</button>`}</div></section>`;
 }
-function painelAlerta() { const keep = T.cutoff; T.cutoff = null; const c = clusters().find(x => x.n >= 20); T.cutoff = keep; return c ? alertaHtml(c, true) : ''; }
+function painelAlerta() { const keep = T.cutoff; T.cutoff = null; const c = clusters().find(x => level(x) === 'crit'); T.cutoff = keep; return c ? alertaHtml(c, true) : ''; }
+/* Resumo diário (no sistema real, disparado às 07:00 pelo fluxo de automação) */
+function resumoDiario() {
+  const ab = PROTOS.filter(p => p.st === 'aberto' && waitOf(p) <= 30);
+  const tally = {}; ab.forEach(p => { tally[p.b] = tally[p.b] || { n: 0, cats: {} }; tally[p.b].n++; tally[p.b].cats[p.cat] = (tally[p.b].cats[p.cat] || 0) + 1; });
+  const rank = Object.entries(tally).sort((a, b) => b[1].n - a[1].n).slice(0, 3);
+  const [b1, d1] = rank[0]; const pct = Math.round(d1.n / ab.length * 100);
+  const focos = Object.entries(d1.cats).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([k]) => CATS[k].label.toLowerCase()).join(' e ');
+  const semEnc = PROTOS.filter(p => p.st === 'aberto' && waitOf(p) >= 7 && waitOf(p) <= 30).length;
+  return `<section class="card brief rv" style="--i:1" aria-labelledby="h-brief">
+    <div class="sec-h"><div><span class="kicker">Resumo do dia · 07:00</span><h2 id="h-brief">Onde o gabinete precisa olhar hoje</h2></div><a href="#territorio">Abrir mapa</a></div>
+    <p class="brief-lede">Nos últimos 30 dias, o <b>${b1}</b> concentrou <b>${pct}%</b> das demandas, com foco em ${focos}. Existem <b>${semEnc}</b> pedidos com mais de uma semana sem encaminhamento.</p>
+    <ol class="brief-list">${rank.map(([b, d], i) => { const top = Object.entries(d.cats).sort((x, y) => y[1] - x[1])[0][0]; return `<li><i>${i + 1}</i><span><b>${b}</b><small>${d.n} demandas ativas · mais citado: ${CATS[top].label.toLowerCase()}</small></span><span class="who">Assessor: ${ASSESSOR[b] || ASSESSOR._}</span></li>`; }).join('')}</ol>
+  </section>`;
+}
 function tableHtml() {
   const rows = PROTOS.slice().sort((a, b) => (b.novo ? 1 : 0) - (a.novo ? 1 : 0) || b.date.localeCompare(a.date) || b.id.localeCompare(a.id)).slice(0, 8);
   return `<table class="protos"><thead><tr><th>Protocolo</th><th>Pedido</th><th>Endereço</th><th>Espera</th></tr></thead><tbody>${rows.map(p => `<tr class="${p.novo ? 'newrow' : ''}"><td><b>${p.id}</b><br><span class="muted small">${dm(fromYmd(p.date))}</span></td><td><span class="cat" style="--c:${CATS[p.cat].c}"><i></i>${CATS[p.cat].label}</span></td><td>${esc(p.end)}<br><span class="muted small">${esc(p.b)}</span></td><td class="${p.st === 'aberto' && waitOf(p) > 21 ? 'late' : ''}">${p.st === 'aberto' ? dias(waitOf(p)) : 'Resolvido'}</td></tr>`).join('')}</tbody></table>`;
 }
-function dias(n) { return n === 0 ? 'hoje' : n === 1 ? '1 dia' : n + ' dias'; }
 function infoTxt() { const n = visible().filter(p => p.st === 'aberto').length; return `${n} pedidos abertos nos últimos ${T.period} dias`; }
 
 function viewTerritorio() {
   const cl = clusters(); if (T.sel >= cl.length) T.sel = 0;
-  const top = cl.find(c => c.n >= 20);
-  return head('territorio', 'Demandas no mapa', 'Cada pedido de morador vira um ponto no mapa. O sistema cruza o endereço, o tipo de problema e o tempo de espera, e mostra quando pedidos que parecem isolados são, na verdade, um problema do bairro inteiro.') +
+  const top = cl.find(c => level(c) === 'crit');
+  return head('territorio', 'Demandas no mapa de Mauá', 'Cada pedido de morador vira um ponto no mapa. O sistema cruza o endereço, o tipo de problema e o tempo de espera, e mostra quando pedidos que parecem isolados são um problema do bairro inteiro.') +
   (top ? alertaHtml(top, false) : '') + `
   <div class="terr">
     <section class="card rv" style="--i:2" aria-labelledby="h-mapa">
@@ -1115,6 +1411,7 @@ function viewTerritorio() {
       <div class="map-tools"><div class="chips" id="chips">${chipsHtml()}</div>
         <div class="seg" id="segMode" role="group" aria-label="Visualização"><button data-act="mode" data-v="heat" aria-pressed="${T.mode === 'heat'}">Mancha de calor</button><button data-act="mode" data-v="pins" aria-pressed="${T.mode === 'pins'}">Só pontos</button></div></div>
       <div class="map-wrap" id="mapBox">${mapSvg()}</div>
+      <p class="hint" style="margin-top:8px">Mapa esquemático com a posição aproximada dos bairros, do Rio Tamanduateí e da Linha 10 da CPTM.</p>
       <div class="map-foot"><span id="mapInfo">${infoTxt()}</span>
         <div><div class="seg" id="segPer" role="group" aria-label="Período">${[30, 60, 90].map(d => `<button data-act="per" data-v="${d}" aria-pressed="${T.period === d}">${d} dias</button>`).join('')}</div>
         <button class="btn" data-act="replay">Ver a mancha se formar</button></div></div>
@@ -1122,18 +1419,18 @@ function viewTerritorio() {
     <aside class="card rv" style="--i:3" aria-labelledby="h-hot">
       <div class="sec-h"><h2 id="h-hot">Pontos críticos</h2><span class="muted small">por volume e espera</span></div>
       <div class="hot-list" id="hotList">${hotListHtml()}</div>
-      <p class="hint" style="margin-top:14px">Clique em um ponto para ver a prova e gerar a cobrança.</p>
+      <p class="hint" style="margin-top:14px">Clique em um ponto para ver a prova, o caso real e gerar a cobrança.</p>
     </aside>
   </div>
   <section class="card rv" style="--i:4" id="prova" aria-label="Prova estatística">${provaHtml()}</section>
   <div id="docArea"></div>
   <div class="reach">
     <section class="card rv" style="--i:5" aria-labelledby="h-ia">
-      <div class="sec-h"><h2 id="h-ia">Novo pedido de morador</h2></div>
+      <div class="sec-h"><h2 id="h-ia">Novo pedido pelo WhatsApp</h2></div>
       <form id="iaForm" class="composer">
-        <label for="iaTxt" class="hint">Cole a mensagem como chegou no WhatsApp. A IA identifica o problema, o endereço e o bairro, e fixa o ponto no mapa.</label>
-        <textarea class="input" id="iaTxt" placeholder="Boa noite! O poste da Rua Japurá, 215, no Jardim Zaíra está apagado há 3 semanas."></textarea>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn cta" type="submit">Ler e fixar no mapa</button><button class="btn" type="button" data-act="exMsg">Usar um exemplo</button></div>
+        <label for="iaTxt" class="hint">Cole a mensagem como chegou. A triagem identifica quem escreveu, o problema, o bairro e a urgência, gera o protocolo, escolhe o assessor e prepara a resposta.</label>
+        <textarea class="input" id="iaTxt" placeholder="Boa noite, sou a Cida. O poste da Rua das Laranjeiras, 215, no Jardim Zaíra está apagado há 3 semanas."></textarea>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn cta" type="submit">Fazer a triagem</button><button class="btn" type="button" data-act="exMsg">Usar um exemplo</button></div>
       </form>
       <div id="iaOut"></div>
     </section>
@@ -1154,65 +1451,78 @@ function currentCluster() { const cl = clusters(); return cl[T.sel] || cl[0]; }
 function oficioTexto(c) {
   const t = CAT_TXT[c.cat]; const datas = c.mem.map(q => q.date).sort();
   const lista = c.mem.slice().sort((a, b) => a.date.localeCompare(b.date));
-  return { assunto: `Demanda unificada: ${t.problema} no bairro ${c.b}`, orgao: t.orgao,
+  return { assunto: `Demanda unificada: ${t.problema} no bairro ${c.b}, Mauá`, orgao: t.orgao,
     paras: [
       `Este gabinete recebeu ${c.n} pedidos de moradores sobre ${t.problema} no bairro ${c.b}, entre ${dm(fromYmd(datas[0]))} e ${dm(fromYmd(datas[datas.length - 1]))}. Com os endereços marcados no mapa, os pedidos formam uma única área contínua. Isso indica ${t.diag.toLowerCase()}, e não defeitos isolados.`,
-      `Os pedidos aguardam em média ${c.wait} dias, e o mais antigo, ${c.maxWait} dias. O número de pedidos por semana passou de ${c.weeks[0]} para ${c.weeks[5]} no período.`,
-      `Diante disso, solicitamos: (1) vistoria técnica completa da área indicada; (2) cronograma para ${t.pedido}; (3) resposta formal a este gabinete em até 15 dias.`
+      `Os pedidos aguardam em média ${dias(c.wait)}, e o mais antigo, ${dias(c.maxWait)}. O número de pedidos por semana passou de ${c.weeks[0]} para ${c.weeks[5]} no período.${t.ref ? ' ' + t.ref : ''}`,
+      `Diante disso, solicitamos: (1) ${t.pedido}; (2) cronograma de execução; (3) resposta formal a este gabinete em até 15 dias.`
     ],
     anexo: lista.slice(0, 10).map(q => `${q.id} · ${q.end} · aberto em ${dm(fromYmd(q.date))}`).concat(c.n > 10 ? [`e mais ${c.n - 10} protocolos`] : []) };
 }
 function abrirOficio() {
   const c = currentCluster(); if (!c) return;
   const o = oficioTexto(c);
-  $('#docArea').innerHTML = `<section class="card rv" aria-labelledby="h-of"><div class="sec-h"><div><span class="kicker">Cobrança institucional</span><h2 id="h-of">Ofício à ${o.orgao}</h2></div><button class="icon-btn" data-act="fecharDoc" aria-label="Fechar ofício">${ICON.x}</button></div>
+  $('#docArea').innerHTML = `<section class="card rv" aria-labelledby="h-of"><div class="sec-h"><div><span class="kicker">Cobrança institucional</span><h2 id="h-of">Ofício: ${o.orgao}</h2></div><button class="icon-btn" data-act="fecharDoc" aria-label="Fechar ofício">${ICON.x}</button></div>
     <article class="folha" id="oficio" contenteditable="true" spellcheck="false">
-      <div class="pl-num">Ofício nº ___/${TODAY.getFullYear()} · Gabinete da Vereadora Ana Ribeiro</div>
-      <p class="muted" style="text-align:right;margin-bottom:18px">${fmt(TODAY)}</p>
+      <div class="pl-num">Ofício nº ___/${TODAY.getFullYear()} · Gabinete da ${VER.cargo} ${VER.nome}</div>
+      <p class="muted" style="text-align:right;margin-bottom:18px">Mauá, ${fmt(TODAY)}</p>
       <p><b>À ${o.orgao}</b></p><p style="margin-bottom:18px"><b>Assunto:</b> ${o.assunto}</p>
-      <div class="corpo"><p>Senhor(a) Secretário(a),</p>${o.paras.map(x => `<p>${x}</p>`).join('')}<p>Atenciosamente,</p><p><b>Ana Ribeiro</b><br>Vereadora</p>
+      <div class="corpo"><p>Prezados,</p>${o.paras.map(x => `<p>${x}</p>`).join('')}<p>Atenciosamente,</p><p><b>${VER.nome}</b><br>${VER.cargo}</p>
       <p class="just">ANEXO · PROTOCOLOS GEORREFERENCIADOS</p>${o.anexo.map(x => `<p class="small" style="margin-bottom:4px">${x}</p>`).join('')}</div>
     </article>
-    <div class="hold-row"><button class="btn cta" data-act="copyDoc">Copiar ofício</button><button class="btn" data-act="toIndic">Transformar em indicação</button><span class="hint">Clique no texto para ajustar antes de enviar.</span></div></section>`;
+    <div class="hold-row"><button class="btn cta" data-act="copyDoc">Copiar e registrar no diário</button><button class="btn" data-act="toIndic">Transformar em indicação</button><span class="hint">Clique no texto para ajustar antes de enviar.</span></div></section>`;
   $('#docArea').scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
 }
 function abrirLote() {
   const c = currentCluster(); if (!c) return; const t = CAT_TXT[c.cat];
-  const msg = `Olá! Aqui é do gabinete da vereadora Ana Ribeiro. Seu pedido sobre ${t.problema} foi recebido. Ele se juntou a outros ${c.n - 1} pedidos de vizinhos do ${c.b}, e hoje enviamos um ofício único à prefeitura pedindo ${t.pedido}. Avisamos você assim que houver resposta. Seu protocolo: {protocolo}.`;
+  const msg = `Olá! Aqui é do gabinete da ${VER.cargo.toLowerCase()} ${VER.nome}. Seu pedido sobre ${t.problema} foi recebido. Ele se juntou a outros ${c.n - 1} pedidos de vizinhos do ${c.b}, e hoje enviamos um ofício único (${t.orgao}) pedindo ${t.pedido}. Avisamos você assim que houver resposta. Seu protocolo: {protocolo}.`;
   openDrawer(`<div class="drawer-h"><span class="kicker">Resposta em lote</span><button class="icon-btn" data-act="close" aria-label="Fechar">${ICON.x}</button></div>
     <h2 style="font-size:1.4rem">Uma mensagem para ${c.n} moradores</h2>
     <p class="muted">Em vez de responder um por um, o gabinete avisa todos de uma vez. Cada morador recebe o próprio número de protocolo.</p>
     <div class="msg-preview" id="loteMsg">${esc(msg)}</div>
     <dl class="kv"><dt>Destinatários</dt><dd>${c.n} moradores do ${c.b}</dd><dt>Canal</dt><dd>WhatsApp do gabinete</dd></dl>
-    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn cta" data-act="enviarLote" data-n="${c.n}">Enviar para os ${c.n}</button><button class="btn" data-act="copyLote">Copiar texto</button></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn cta" data-act="enviarLote" data-n="${c.n}" data-b="${esc(c.b)}">Enviar para os ${c.n}</button><button class="btn" data-act="copyLote">Copiar texto</button></div>
     <p class="hint">No protótipo o envio é simulado.</p>`);
 }
 const EXEMPLOS_MSG = [
-  'Boa noite! O poste da Rua Japurá, 215, no Jardim Zaíra está apagado há 3 semanas. A rua fica um breu.',
-  'Tem um buraco enorme na Rua Bahia, 88, no São José. Já furou o pneu de dois carros.',
-  'O galho da árvore da Rua das Rosas, 40, Vila Nova está em cima da fiação. Pode cair a qualquer hora.'
+  'Boa noite, sou a Cida. O poste da Rua das Laranjeiras, 215, no Jardim Zaíra está apagado há 3 semanas. A rua fica um breu.',
+  'Aqui é o Jorge, do Jardim Oratório. Estamos há 4 dias sem água na Rua Paraná, 120. Tenho mãe idosa em casa.',
+  'Choveu forte e abriu uma rachadura no barranco atrás de casa, Av. João Guilherme Bolidoro, 300, no Chafik. Tenho medo de deslizar.'
 ];
-function lerMensagem(txt) {
-  if (!txt.trim()) { $('#iaTxt').focus(); return; }
+function triagem(txt) {
   const f = fold(txt);
-  const rules = [['luz', /luz|poste|lampada|apagad|escur|iluminac/], ['via', /buraco|asfalto|cratera|pavimento/], ['poda', /arvore|galho|poda/], ['lixo', /lixo|entulho|descarte|coleta/], ['saude', /ubs|posto de saude|medic|pediatra|consulta/], ['transito', /semaforo|faixa|lombada|transito|acidente|sinaliza/]];
-  const cat = (rules.find(([, re]) => re.test(f)) || ['lixo'])[0];
+  const rules = [['risco', /barranco|desliz|encosta|rachadura|desmoron|morro ced/], ['alaga', /alag|enchente|inunda|corrego|transbord/], ['agua', /sem agua|falta de agua|torneira|sabesp|caixa d.?agua|abastecimento/], ['luz', /luz|poste|lampada|apagad|escur|iluminac/], ['via', /buraco|asfalto|cratera|pavimento/], ['saude', /ubs|posto de saude|medic|pediatra|consulta|remedio/]];
+  const cat = (rules.find(([, re]) => re.test(f)) || ['via'])[0];
   const m = txt.match(/(rua|av\.?|avenida|travessa|estrada|alameda)\s+[^,.;!?\n]+(,\s*(n[ºo°]\s*)?\d+)?/i);
   const end = m ? m[0].replace(/^av\b\.?/i, 'Av.').replace(/^./, ch => ch.toUpperCase()) : 'Endereço não informado';
-  const bi = MAP_B.findIndex(b => f.includes(fold(b.n)));
-  const b = MAP_B[bi >= 0 ? bi : 4]; const r = mkRng(txt.length * 97 + PROTOS.length);
-  const [x, y] = cat === 'luz' && b.n === 'Jardim Zaíra' ? near(632, 138, 30, 26, b.p, r) : randIn(b.p, r);
+  const nm = txt.match(/(?:[Ss]ou (?:a|o)|[Aa]qui (?:é|e) (?:a|o)|[Mm]eu nome (?:é|e))\s+([A-ZÁÉÍÓÚÂÊÔÃÕÇ][a-záéíóúâêôãõç]+)/);
+  let b = null; for (const k of Object.keys(ALIAS)) if (f.includes(k)) { b = ALIAS[k]; break; }
+  const urg = cat === 'risco' || /idos|crianca|acamad|perigo|medo|urgente|dias sem/.test(f) ? 'Alta' : /semana|mes|meses/.test(f) ? 'Média' : 'Baixa';
+  return { cat, end, nome: nm ? nm[1] : 'Não informado', b, urg };
+}
+function lerMensagem(txt) {
+  if (!txt.trim()) { $('#iaTxt').focus(); return; }
+  const tr = triagem(txt);
+  const bn = tr.b || 'Centro'; const bp = MAP_B[BI(bn)].p; const r = mkRng(txt.length * 97 + PROTOS.length);
+  const anchor = { luz: [345, 370], agua: [718, 415], risco: [300, 452], alaga: [470, 360] }[tr.cat];
+  const [x, y] = anchor && inPoly(anchor[0], anchor[1], bp) ? near(anchor[0], anchor[1], 26, 22, bp, r) : randIn(bp, r);
   const id = '#' + String(350 + PROTOS.length).padStart(4, '0');
-  const p = { id, cat, x, y, b: b.n, st: 'aberto', date: ymd(TODAY), end, novo: true };
-  PROTOS.push(p); store.set('protosNovos', PROTOS.filter(q => q.novo || q.salvo).map(q => ({ ...q, novo: false, salvo: true })));
-  T.cats.add(cat);
-  $('#iaOut').innerHTML = `<div class="ia-out"><div><span>Problema</span><b>${CATS[cat].label}</b></div><div><span>Endereço</span><b>${esc(end)}</b></div><div><span>Bairro</span><b>${b.n}${bi < 0 ? ' (confirmar)' : ''}</b></div></div>`;
+  const p = { id, cat: tr.cat, x, y, b: bn, st: 'aberto', date: ymd(TODAY), end: tr.end, novo: true };
+  PROTOS.push(p); store.set('protosMaua', PROTOS.filter(q => q.novo || q.salvo).map(q => ({ ...q, novo: false, salvo: true })));
+  T.cats.add(tr.cat);
+  const quem = ASSESSOR[bn] || ASSESSOR._;
+  const resp = `Olá${tr.nome !== 'Não informado' ? ', ' + tr.nome : ''}! Recebemos seu pedido sobre ${CAT_TXT[tr.cat].problema}. Protocolo ${id}. Quem acompanha é ${quem}, da equipe da ${VER.cargo.toLowerCase()} ${VER.nome}.`;
+  $('#iaOut').innerHTML = `<div class="ia-out tri">
+      <div><span>Morador</span><b>${esc(tr.nome)}</b></div><div><span>Problema</span><b>${CATS[tr.cat].label}</b></div><div><span>Urgência</span><b class="urg-${fold(tr.urg)}">${tr.urg}</b></div>
+      <div><span>Endereço</span><b>${esc(tr.end)}</b></div><div><span>Bairro</span><b>${bn}${tr.b ? '' : ' (confirmar)'}</b></div><div><span>Assessor</span><b>${quem}</b></div>
+    </div>
+    <div class="msg-preview" style="margin-top:10px"><span class="kicker">Resposta automática pronta</span><br>${esc(resp)}</div>`;
   $('#iaTxt').value = '';
+  diarioAdd('Atendimento', `Protocolo ${id}: ${CATS[tr.cat].label.toLowerCase()} em ${bn} (${tr.end}). Urgência ${tr.urg.toLowerCase()}.`, bn);
   refreshTerr();
   const cl = clusters().find(c => c.mem.includes(p));
-  toast(cl && cl.n >= 10 ? `Protocolo ${id} fixado. Ele entrou no ponto crítico do ${cl.b}.` : `Protocolo ${id} fixado no mapa`);
+  toast(cl && cl.n >= 8 ? `Protocolo ${id} criado. Ele entrou no ponto crítico do ${cl.b}.` : `Protocolo ${id} fixado no mapa`);
   setTimeout(() => { p.novo = false; }, 1200);
-  $('#mapBox').scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'center' });
 }
 function replay() {
   if (reduced()) { toast('Animação desligada pela preferência de movimento reduzido'); return; }
@@ -1220,8 +1530,9 @@ function replay() {
   const step = ts => {
     if (!t0) t0 = ts; const k = Math.min(1, (ts - t0) / DUR);
     T.cutoff = addDays(start, Math.round(k * T.period));
+    if (!$('#mapBox')) { T.cutoff = null; return; }
     $('#mapBox').innerHTML = mapSvg(); $('#mapInfo').textContent = infoTxt();
-    if (k < 1 && $('#mapBox')) requestAnimationFrame(step); else { T.cutoff = null; refreshTerr(); }
+    if (k < 1) requestAnimationFrame(step); else { T.cutoff = null; refreshTerr(); }
   };
   requestAnimationFrame(step);
 }
@@ -1230,7 +1541,7 @@ function pinDrawer(id) {
   const c = clusters().find(x => x.mem.includes(p));
   openDrawer(`<div class="drawer-h"><span class="kicker" style="color:${CATS[p.cat].c}">${CATS[p.cat].label}</span><button class="icon-btn" data-act="close" aria-label="Fechar">${ICON.x}</button></div>
     <h2 style="font-size:1.6rem">Protocolo ${p.id}</h2>
-    <dl class="kv"><dt>Endereço</dt><dd>${esc(p.end)}</dd><dt>Bairro</dt><dd>${esc(p.b)}</dd><dt>Aberto em</dt><dd>${fmt(fromYmd(p.date))}</dd><dt>Situação</dt><dd>${p.st === 'aberto' ? `Aguardando há ${dias(waitOf(p))}` : 'Resolvido'}</dd></dl>
+    <dl class="kv"><dt>Endereço</dt><dd>${esc(p.end)}</dd><dt>Bairro</dt><dd>${esc(p.b)}</dd><dt>Aberto em</dt><dd>${fmt(fromYmd(p.date))}</dd><dt>Situação</dt><dd>${p.st === 'aberto' ? `Aguardando há ${dias(waitOf(p))}` : 'Resolvido'}</dd><dt>Assessor</dt><dd>${ASSESSOR[p.b] || ASSESSOR._}</dd></dl>
     ${c ? `<div class="callout stop"><span>Este pedido faz parte de um ponto crítico: ${c.n} pedidos parecidos no ${c.b}.</span></div>` : `<div class="callout go"><span>Pedido isolado. Nenhuma concentração por perto.</span></div>`}`);
 }
 function copyText(txt, okMsg) {
@@ -1248,16 +1559,16 @@ function terrClick(b) {
   if (a === 'oficioGo') { T.openDoc = true; location.hash = '#territorio'; return true; }
   if (a === 'fecharDoc') { $('#docArea').innerHTML = ''; return true; }
   if (a === 'lote') { abrirLote(); return true; }
-  if (a === 'enviarLote') { closeDrawer(); toast(`Mensagem enviada para ${b.dataset.n} moradores`); return true; }
+  if (a === 'enviarLote') { closeDrawer(); diarioAdd('Atendimento', `Resposta em lote enviada a ${b.dataset.n} moradores do ${b.dataset.b}.`, b.dataset.b); toast(`Mensagem enviada para ${b.dataset.n} moradores`); return true; }
   if (a === 'copyLote') { copyText($('#loteMsg').textContent, 'Texto copiado'); return true; }
-  if (a === 'copyDoc') { copyText($('#oficio').innerText, 'Ofício copiado'); return true; }
-  if (a === 'toIndic') { const c = currentCluster(); pendingTema = `${CAT_TXT[c.cat].nec} no bairro ${c.b}`; location.hash = '#projetos'; return true; }
+  if (a === 'copyDoc') { const c = currentCluster(); copyText($('#oficio').innerText, 'Ofício copiado e registrado no diário'); diarioAdd('Ofício', `Ofício a ${CAT_TXT[c.cat].orgao}: ${CAT_TXT[c.cat].problema} no ${c.b} (${c.n} protocolos).`, c.b); return true; }
+  if (a === 'toIndic') { const c = currentCluster(); pendingTema = { t: `${CAT_TXT[c.cat].nec} no bairro ${c.b}`, tipo: 'indicacao' }; location.hash = '#projetos'; return true; }
   if (a === 'exMsg') { $('#iaTxt').value = EXEMPLOS_MSG[T.ex++ % EXEMPLOS_MSG.length]; $('#iaTxt').focus(); return true; }
   return false;
 }
 function afterRender(route) {
   if (route === 'territorio' && T.openDoc) { T.openDoc = false; setTimeout(abrirOficio, 60); }
-  if (route === 'projetos' && pendingTema) { const t = pendingTema; pendingTema = null; setTimeout(() => { $('#tema').value = t; runResearch(t); }, 60); }
+  if (route === 'projetos' && pendingTema) { const t = pendingTema; pendingTema = null; setTimeout(() => { TOOL = 'criador'; PTIPO = t.tipo; render(); setTimeout(() => { $('#tema').value = t.t; runResearch(t.t); }, 30); }, 30); }
 }
 
 /* ---------- Navegação ---------- */
@@ -1277,6 +1588,7 @@ window.addEventListener('hashchange', render);
 document.addEventListener('click', ev => {
   const b = ev.target.closest('[data-act],[data-ev],[data-ex],[data-tab],[data-post],[data-pin],[data-cat],[data-hot]'); if (!b) return;
   if (terrClick(b)) return;
+  if (projClick(b)) return;
   if (b.dataset.ev) return eventDrawer(b.dataset.ev);
   if (b.dataset.ex) { $('#tema').value = b.dataset.ex; return runResearch(b.dataset.ex); }
   if (b.dataset.tab) {
@@ -1312,12 +1624,14 @@ document.addEventListener('submit', ev => {
   ev.preventDefault();
   if (ev.target.id === 'askForm') runResearch($('#tema').value);
   if (ev.target.id === 'iaForm') lerMensagem($('#iaTxt').value);
+  projSubmit(ev.target.id);
   if (ev.target.id === 'evForm') {
     events.push({ id: 'e' + Date.now(), date: $('#evD').value, h: $('#evH').value, tipo: $('#evTipo').value, t: $('#evT').value, local: $('#evL').value, bairro: $('#evB').value, pessoas: '', nota: $('#evN').value });
     store.set('events', events); closeDrawer(); render(); toast('Compromisso salvo');
   }
 });
 document.addEventListener('input', ev => {
+  if (ev.target.id === 'diarioQ') { diarioQ = ev.target.value; $('#diarioOut').innerHTML = diarioLista(); return; }
   if (['pTxt','pDate','pCanal'].includes(ev.target.id)) {
     draft = { texto: $('#pTxt').value, date: $('#pDate').value || draft.date, canal: $('#pCanal').value };
     $('#checkBox').innerHTML = signal(checkPost(draft.texto, draft.date));
@@ -1326,6 +1640,7 @@ document.addEventListener('input', ev => {
 document.addEventListener('keydown', ev => {
   if (ev.key === 'Escape') closeDrawer();
   if (ev.key === 'Enter' && !ev.shiftKey && ev.target.id === 'tema') { ev.preventDefault(); runResearch(ev.target.value); }
+  if (ev.key === 'Enter' && !ev.shiftKey && ev.target.id === 'consQ') { ev.preventDefault(); consultar(ev.target.value); }
 });
 document.addEventListener('visibilitychange', () => document.body.classList.toggle('paused', document.hidden));
 const savedTheme = store.get('theme', null); if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
